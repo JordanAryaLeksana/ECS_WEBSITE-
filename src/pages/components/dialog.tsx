@@ -7,7 +7,7 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
  
-export function DialogDefault({isOpen, nrp}:any) {
+export default function DialogDefault({isOpen, nrp}:any) {
     const [open, setOpen] = React.useState(isOpen)
     const handleOpen = () => {
         setOpen(isOpen)

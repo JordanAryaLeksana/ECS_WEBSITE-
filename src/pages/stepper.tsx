@@ -19,11 +19,11 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db, storage } from "./firebase/firebase_config";
+import { auth, db, storage } from "@/firebase/firebase_config";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Success from "./success/[id]";
-import { DialogDefault } from "./components/dialog";
+
 import { TypeAnimation } from "react-type-animation";
 import { only } from "node:test";
 import { setDoc, doc, collection } from "firebase/firestore";

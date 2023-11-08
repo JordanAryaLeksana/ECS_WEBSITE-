@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase/firebase_config';
+import { auth } from '../../firebase/firebase_config';
 
 const Success = () => {
     const {query, push} = useRouter();
