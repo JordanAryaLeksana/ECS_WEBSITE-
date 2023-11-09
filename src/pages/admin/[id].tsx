@@ -62,7 +62,11 @@ const Admin = () => {
                           Open
                         </a>
                       </td>
-                      <td className="px-4 py-2 text-center">-</td>
+                      <td className="px-4 py-2 text-center">
+                        <a className='p-3 py-1 bg-yellow-500 rounded-2xl' href={item.motlet} target="_blank" rel="noopener noreferrer">
+                          Open
+                        </a>
+                      </td>
                       <td className="px-4 py-2 text-center">
                         <a className='p-3 py-1 bg-yellow-500 rounded-2xl' href={item.foto} target="_blank" rel="noopener noreferrer">
                           Open
@@ -70,6 +74,11 @@ const Admin = () => {
                       </td>
                       <td className="px-4 py-2 text-center">
                         <a className='p-3 py-1 bg-yellow-500 rounded-2xl' href={item.ktm} target="_blank" rel="noopener noreferrer">
+                          Open
+                        </a>
+                      </td>
+                      <td className="px-4 py-2 text-center">
+                        <a className='p-3 py-1 bg-yellow-500 rounded-2xl' href={item.sk} target="_blank" rel="noopener noreferrer">
                           Open
                         </a>
                       </td>
