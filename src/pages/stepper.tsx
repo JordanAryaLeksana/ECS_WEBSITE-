@@ -32,8 +32,10 @@ export default function StepperTailwind() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLastStep, setIsLastStep] = React.useState(false);
   const [typingStatus, setTypingStatus] = React.useState("");
+  const [cvUrl, setCvUrl] = React.useState("");
   const [isFirstStep, setIsFirstStep] = React.useState(false);
   const [email, setEmail] = useState("");
+  const [ktm, setKtm] = useState<any>("");
   const [percent, setPercent] = useState(0);
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -50,6 +52,36 @@ export default function StepperTailwind() {
       inputElement.focus();
     }
   }, []);
+  const uploadFile = async (file:any, ref:any) => {
+  const uploadTask = uploadBytesResumable(ref, file);
+
+  return new Promise((resolve, reject) => {
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        // Add any progress handling logic here if needed
+      },
+      (error) => {
+        console.error("Error uploading file:", error);
+        reject(error);
+      },
+      async () => {
+        try {
+          const url = await getDownloadURL(uploadTask.snapshot.ref);
+          console.log(`File ${file.name} uploaded successfully. URL: ${url}`);
+          resolve(url);
+        } catch (error) {
+          console.error(`Error getting download URL for ${file.name}:`, error);
+          reject(error);
+        }
+      }
+    );
+  });
+};
+
   const onSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -87,7 +119,7 @@ export default function StepperTailwind() {
       toast("NRP is required");
       return;
     }
-    if (y === "" || y != "y" || "Y") {
+    if (y != "y" && y != "Y") {
       setError("Y/n?");
       toast("Masukkan Y untuk mendaftar");
       return;
@@ -100,6 +132,11 @@ export default function StepperTailwind() {
     if (foto === "") {
       setError("Pas Foto harus diisi");
       toast("Pas Foto harus diisi");
+      return;
+    }
+    if (ktm === "") {
+      setError("KTM harus diisi");
+      toast("KTM is required");
       return;
     }
 
@@ -119,76 +156,46 @@ export default function StepperTailwind() {
       block: "start",
       inline: "nearest",
     });
-    const userData = {
-      email: email,
-      password: password,
-      name: name,
-      nrp: nrp,
-      status: y,
-      cv: cv,
-    };
-    if (!cv) {
-      toast("Please upload an image first!");
-      return;
-    }
+    const cvRef = ref(storage, `/files/${cv.name}`);
+  const ktmRef = ref(storage, `/files/${ktm.name}`);
+  const fotoRef = ref(storage, `/files/${foto.name}`);
+
     try {
-      const cvRef = ref(storage, `/files/${cv.name}`);
+     const [cvUrl, ktmUrl, fotoUrl] = await Promise.all([
+      uploadFile(cv, cvRef),
+      uploadFile(ktm, ktmRef),
+      uploadFile(foto, fotoRef),
+    ]);
 
-      const uploadCv = uploadBytesResumable(cvRef, cv);
 
-      uploadCv.on(
-        "state_changed",
-        (snapshot: any) => {
-          const percent = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-
-        },
-        (err: any) => console.log(err),
-        () => {
-          getDownloadURL(uploadCv.snapshot.ref).then((url) => {
-            setCv(url);
-            console.log(url);
-          });
-        }
-      );
+      const userData = {
+        email: email,
+        password: password,
+        name: name,
+        nrp: nrp,
+        cv: cvUrl,
+        ktm: ktmUrl,
+        foto: fotoUrl
+      };
       const users = await createUserWithEmailAndPassword(
         auth,
         email,
         password
-      ).catch((error) => {
-        console.log(error.code);
-        if (error.code === "auth/email-already-in-use") {
-          setError("Email already in use");
-          toast("Email already in use");
-          return;
-        }
-        if (error.code === "auth/invalid-email") {
-          setError("Invalid email");
-          toast("Invalid email");
-          return;
-        }
-        if (error.code === "auth/weak-password") {
-          setError("Minimum password length is 6 characters");
-          toast("Minimum password length is 6 characters");
-          return;
-        }
+      );
+
+      await updateProfile(users.user, { displayName: name });
+
+      await setDoc(doc(db, "users", users.user.uid), userData, {
+        merge: true,
       });
-      if (users) {
-        await updateProfile(users.user, { displayName: name });
-        setIsSuccess(true);
-        await setDoc(doc(db, "users", users.user.uid), userData, {
-          merge: true,
-        });
-      }
-    } catch {
-      (error: any) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        setError(errorMessage);
-        toast(errorMessage);
-      };
+
+      setIsSuccess(true);
+    } catch (error: any) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorCode, errorMessage);
+      setError(errorMessage);
+      toast(errorMessage);
     }
   };
   if (typingStatus === "done") {
@@ -268,7 +275,7 @@ export default function StepperTailwind() {
                 value={name}
                 crossOrigin={"anonymous"}
                 size="lg"
-                placeholder="Masukkan nama selengkap mungkin"
+                placeholder="Masukkan nama lengkap"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -349,26 +356,30 @@ export default function StepperTailwind() {
                 id="formFileMultiple"
                 multiple={false}
               />
+              <h1>{cv.name}</h1>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 KTM
               </Typography>
               <input
+                onChange={(e: any) => setKtm(e?.target?.files[0])}
                 className="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                 type="file"
                 id="formFileMultiple"
                 multiple={false}
               />
+              <h1>{ktm.name}</h1>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Pas Foto 3x4
               </Typography>
               <input
-              onChange={(e: any) => setFoto(e?.target?.files[0])}
+                onChange={(e: any) => setFoto(e?.target?.files[0])}
                 className="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                 type="file"
                 accept="image/*"
                 id="formFileMultiple"
                 multiple={false}
               />
+              <h1>{foto.name}</h1>
             </div>
           )}
           {activeStep === 2 && (

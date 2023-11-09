@@ -1,4 +1,4 @@
-import {Poppins} from '@next/font/google'
+import {Poppins} from "next/font/google"
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import {ThemeProvider } from "@material-tailwind/react";
