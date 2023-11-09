@@ -2,7 +2,7 @@ import React from 'react';
 import StepFlow from './stepflow';
 import Navbar from './components/navbar';
 import StepperTailwind from './stepper';
-import useResponsive from './components/useResponsive';
+import useResponsive from '@/components/useResponsive'
 const Oprec = () => {
   const {isDesktop} = useResponsive()
   return (

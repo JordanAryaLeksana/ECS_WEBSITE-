@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './components/navbar'
 import Link from 'next/link'
 import Image from 'next/image'
-import useResponsive from './components/useResponsive'
+import useResponsive from '@/components/useResponsive'
 const Home = () => {
   const {isDesktop, isMobile} = useResponsive()
   return (

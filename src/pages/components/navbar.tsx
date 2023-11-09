@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
-import useResponsive from './useResponsive'
+import useResponsive from '@/components/useResponsive'
 import {RiMenu4Fill} from 'react-icons/ri'
 import {IoMdClose}  from 'react-icons/io'
 const Navbar = () => {
