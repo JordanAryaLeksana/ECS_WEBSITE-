@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div >
       <Navbar></Navbar>
-      <div className='flex flex-row justify-center w-full items-center px-20  h-screen' style={{backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
+      <div className='flex flex-row justify-center w-full items-center px-20  min-h-screen' style={{backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
         {
           isDesktop?
           <div className='border-dashed border-[3px] py-20 px-10 border-black/30 flex flex-row  justify-center items-center '>

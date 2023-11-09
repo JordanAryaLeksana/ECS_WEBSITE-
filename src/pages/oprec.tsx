@@ -6,10 +6,10 @@ import useResponsive from "@/components/useResponsive";
 const Oprec = () => {
   const { isDesktop } = useResponsive();
   return (
-    <div className="">
+    <>
       <Navbar />
       <div
-        className="min-h-screen w-full flex justify-center items-center bg-cover bg-center"
+        className="min-h-screen w-full flex justify-center lg:items-center sm:  bg-cover overflow-x-hidden "
         style={{ backgroundImage: "url('/bg.png')" }}
       >
         {/* <div className='md:w-1/2 md:px-20 sm:w-full bg-white py-16 md:m-20 sm:m-0 rounded-3xl'>
@@ -21,12 +21,12 @@ const Oprec = () => {
             <StepperTailwind></StepperTailwind>
           </div>
         ) : (
-          <div className="bg-white py-16 my-10 w-[90%]   p-10 rounded-3xl">
+          <div className="bg-white py-8 my-10 w-full mx-6 p-8 rounded-3xl h-fit">
             <StepperTailwind></StepperTailwind>
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
