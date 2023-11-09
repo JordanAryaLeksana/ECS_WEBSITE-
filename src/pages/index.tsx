@@ -25,7 +25,7 @@ const Home = () => {
         </div>
         :
         <div className='border-dashed  py-20 px-10 border-black/30 flex flex-col  justify-center items-center '>
-        <Image width={380} height={380} src="/ecswarna.png" alt="" />
+        <Image width={250} height={250} src="/ecswarna.png" alt="" />
         <div className='flex flex-col gap-6 w-full'>
           <h1 className='text-kuning font-extrabold text-[32px]' style={{WebkitTextStroke:'1px gray'}}>EMBEDDED & CYBER PHYSICAL SYSTEM LABORATORY</h1>
           <h1 className='font-semibold'>Merupakan laboratorium yang menghubungkan gagasan penelitian terbaru berbasis fisika dengan pengembangan produk atau proses dalam format <span className='font-light'>embedded system </span> dan skema <span className='font-light'>internet-of-things</span>.</h1>
