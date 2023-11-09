@@ -6,9 +6,9 @@ import useResponsive from '@/components/useResponsive'
 const Oprec = () => {
   const {isDesktop} = useResponsive()
   return (
-    <div className='w-full'>
+    <div className='w-full flex flex-col'>
        <Navbar />
-    <div className="min-h-screen flex justify-center items-center bg-cover bg-center" style={{backgroundImage: "url('/bg.png')"}}>
+    <div className="min-h-screenc w-full flex justify-center items-center bg-cover bg-center" style={{backgroundImage: "url('/bg.png')"}}>
       
       {/* <div className='md:w-1/2 md:px-20 sm:w-full bg-white py-16 md:m-20 sm:m-0 rounded-3xl'>
         
