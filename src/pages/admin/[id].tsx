@@ -45,14 +45,14 @@ const Admin = () => {
                     <th className="px-4 py-2">NRP</th>
                     <th className="px-4 py-2">CV</th>
                     <th className="px-4 py-2">MotLet</th>
-                    <th className="px-4 py-2">SK</th>
                     <th className="px-4 py-2">Pas Foto</th>
                     <th className="px-4 py-2">KTM</th>
+                    <th className="px-4 py-2">SK</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.map((item: any, index: any) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : ''}>
+                    <tr key={index} >
                       <td className="px-4 py-2">{index + 1}</td>
                       <td className="px-4 py-2">{item.name}</td>
                       <td className="px-4 py-2">{item.email}</td>
