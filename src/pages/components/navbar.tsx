@@ -11,7 +11,7 @@ const Navbar = () => {
       isDesktop?
       <div className='bg-black/75 w-full h-fit justify-between flex-row flex py-4 px-10 items-center'>
         <Link href={'/'}  className='flex flex-row items-center gap-4'>
-            <img className='w-14 h-14' src="/ecs.png" alt="" />
+            <img className='w-14' src="/ecs.png" alt="" />
             <h1 className='text-kuning font-bold text-xl' >ECS Laboratory</h1>
         </Link>
         <div className='flex flex-row items-center gap-10 text-kuning'>
@@ -26,7 +26,7 @@ const Navbar = () => {
       <div>
       <div className='bg-black/75 w-full h-fit justify-between items-center flex-row flex py-4 px-6'>
       <Link href={'/'}  className='flex flex-row items-center gap-4'>
-          <img className='w-10 h-10' src="/ecs.png" alt="" />
+          <img className='w-10' src="/ecs.png" alt="" />
           <h1 className='text-kuning font-bold ' >ECS Laboratory</h1>
       </Link>
       <button onClick={()=>setOpen(!open)}>
