@@ -76,7 +76,7 @@ const Success = () => {
             }/>
         </div>:
            <div className='text-center flex flex-col justify-center gap-4 items-center '>
-              <img className='w-[150px] rounded-3xl border-2' src={user.foto} alt="" />
+              <motion.img initial={{opacity:0}} animate={{opacity:1}} transition={{duration:10}}  className='w-[150px] rounded-3xl border-2' src={user.foto} alt="" />
             <h1>Terima kasih sudah mendaftar</h1>
             <TypeAnimation className="pb-20 break-all"
             repeat={Infinity}
