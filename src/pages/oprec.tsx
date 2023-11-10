@@ -24,7 +24,7 @@ const Oprec = () => {
             <StepperTailwind></StepperTailwind>
           </div>
         ) : (
-          <div className="bg-white py-8 my-10 w-full mx-6 p-8 rounded-3xl h-fit">
+          <div className="bg-white py-8 my-10 w-full p-8 rounded-3xl h-fit">
             <StepperTailwind></StepperTailwind>
           </div>
         )}
