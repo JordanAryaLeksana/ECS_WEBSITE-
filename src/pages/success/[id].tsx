@@ -5,6 +5,7 @@ import { collection, doc, getDoc, getDocs, where, query as Query, onSnapshot } f
 import useResponsive from '@/components/useResponsive';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
+import Head from 'next/head';
 const Success = () => {
   const {isDesktop} = useResponsive()
   const { query, push } = useRouter();
@@ -55,6 +56,7 @@ const Success = () => {
   return (
     user &&
     <div className='flex w-full h-screen justify-center items-center p-10' style={{backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat'}}>
+    <Head>{id} -success -ecs-laboratory</Head>
     
         
           {

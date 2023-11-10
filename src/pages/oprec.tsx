@@ -3,11 +3,14 @@ import StepFlow from "./stepflow";
 import Navbar from "./components/navbar";
 import StepperTailwind from "./stepper";
 import useResponsive from "@/components/useResponsive";
+import Head from "next/head";
 const Oprec = () => {
   const { isDesktop } = useResponsive();
   return (
     <>
+    <Head>oprec -ecs-laboratory</Head>
       <Navbar />
+
       <div
         className="min-h-screen w-full flex justify-center lg:items-center sm:  bg-cover overflow-x-hidden "
         style={{ backgroundImage: "url('/bg.png')" }}

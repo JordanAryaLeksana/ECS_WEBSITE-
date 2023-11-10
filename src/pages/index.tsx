@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import useResponsive from '@/components/useResponsive'
 import { duration } from '@mui/material'
 import {InfinitySpin} from "react-loader-spinner"
-
+import Head from 'next/head'
 const loadingContainer = {
   display: "flex"
   ,
@@ -67,6 +67,7 @@ const Home = () => {
   return (
     show ?
       <div >
+      <Head>ecs-laboratory</Head>
         <Navbar></Navbar>
         <div className='flex flex-row justify-center w-full items-center lg:px-20 sm:px-10  min-h-screen' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
           {

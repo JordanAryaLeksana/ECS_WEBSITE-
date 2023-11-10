@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
 import { auth, db } from '@/firebase/firebase_config';
+import Head from 'next/head';
 
 const Admin = () => {
   const { query, push } = useRouter();
@@ -27,6 +28,7 @@ const Admin = () => {
 
   return (
     <div className='w-full min-h-screen' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
+    <Head>admin -ecs-laboratory</Head>
       {query.id !== 'login-admin-ecs-success--admin' ? (
         <div className="text-center py-8">Tidak ada apa-apa di sini</div>
       ) : (

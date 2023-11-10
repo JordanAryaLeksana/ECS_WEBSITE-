@@ -3,6 +3,7 @@ import { Button, Input, Typography } from "@material-tailwind/react"; // Import 
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/ReactToastify.css'
+import Head from 'next/head';
 const Admin = () => {
     const username = 'admin';
     const password = 'adminecsoke';
@@ -23,7 +24,7 @@ const Admin = () => {
 
     return (
         <div className='flex flex-col items-center justify-center min-h-screen ' style={{backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat'}}>
-
+        <Head>login -admin -ecs-laboratory</Head>
             <div className='flex flex-col  space-y-4 lg:w-1/2 sm:w-full text-left'>
                 <Typography slot='' variant="h6" color="blue-gray" className="-mb-3">
                     Username
