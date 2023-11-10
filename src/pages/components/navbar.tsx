@@ -44,7 +44,7 @@ const Navbar = () => {
         {
           open &&
           <div className='w-full h-fit absolute left-0 top-0 z-[9999] items-center text-center'>
-            <div className='bg-gray-800 w-full h-fit justify-between items-center flex-row flex py-4 px-6'>
+            <div className='bg-gray-900 w-full h-fit justify-between items-center flex-row flex py-4 px-6'>
               <Link href={'/'} className='flex flex-row items-center gap-2'>
                 <img className='w-10' src="/ecs.png" alt="" />
                 <h1 className='text-kuning font-bold ' >ECS Laboratory</h1>
