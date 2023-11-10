@@ -35,6 +35,7 @@ export default function StepperTailwind() {
   const [cvUrl, setCvUrl] = React.useState("");
   const [isFirstStep, setIsFirstStep] = React.useState(false);
   const [email, setEmail] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false)
   const [ktm, setKtm] = useState<any>("");
   const [sk, setSk] = useState<any>("");
   const [motlet, setMotlet] = useState<any>("");
@@ -53,39 +54,40 @@ export default function StepperTailwind() {
       inputElement.focus();
     }
   }, []);
-  const uploadFile = async (file:any, ref:any) => {
-  const uploadTask = uploadBytesResumable(ref, file);
+  const uploadFile = async (file: any, ref: any) => {
+    const uploadTask = uploadBytesResumable(ref, file);
 
-  return new Promise((resolve, reject) => {
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        // Add any progress handling logic here if needed
-      },
-      (error) => {
-        console.error("Error uploading file:", error);
-        reject(error);
-      },
-      async () => {
-        try {
-          const url = await getDownloadURL(uploadTask.snapshot.ref);
-          console.log(`File ${file.name} uploaded successfully. URL: ${url}`);
-          resolve(url);
-        } catch (error) {
-          console.error(`Error getting download URL for ${file.name}:`, error);
+    return new Promise((resolve, reject) => {
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const percent = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          // Add any progress handling logic here if needed
+        },
+        (error) => {
+          console.error("Error uploading file:", error);
           reject(error);
+        },
+        async () => {
+          try {
+            const url = await getDownloadURL(uploadTask.snapshot.ref);
+            console.log(`File ${file.name} uploaded successfully. URL: ${url}`);
+            resolve(url);
+          } catch (error) {
+            console.error(`Error getting download URL for ${file.name}:`, error);
+            reject(error);
+          }
         }
-      }
-    );
-  });
-};
+      );
+    });
+  };
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
-
+    setError('')
+    setIsSubmit(true)
     // Check if email is empty
     if (email === "") {
       setError("Email is required");
@@ -140,12 +142,12 @@ export default function StepperTailwind() {
       toast("KTM is required");
       return;
     }
-    if(motlet === ""){
+    if (motlet === "") {
       setError("Motlet harus diisi");
       toast("Motlet is required");
       return;
     }
-    if(sk === ""){
+    if (sk === "") {
       setError("SK harus diisi");
       toast("SK is required");
       return;
@@ -168,20 +170,20 @@ export default function StepperTailwind() {
       inline: "nearest",
     });
     const cvRef = ref(storage, `/files/${cv.name}`);
-  const ktmRef = ref(storage, `/files/${ktm.name}`);
-  const fotoRef = ref(storage, `/files/${foto.name}`);
-  const motletRef = ref(storage, `/files/${motlet.name}`);
-  const skRef = ref(storage, `/files/${sk.name}`);
+    const ktmRef = ref(storage, `/files/${ktm.name}`);
+    const fotoRef = ref(storage, `/files/${foto.name}`);
+    const motletRef = ref(storage, `/files/${motlet.name}`);
+    const skRef = ref(storage, `/files/${sk.name}`);
 
     try {
-     const [cvUrl, ktmUrl, fotoUrl, motletUrl , skUrl ] = await Promise.all([
-      uploadFile(cv, cvRef),
-      uploadFile(ktm, ktmRef),
-      uploadFile(foto, fotoRef),
-      uploadFile(motlet, motletRef),
-      uploadFile(sk, skRef),
+      const [cvUrl, ktmUrl, fotoUrl, motletUrl, skUrl] = await Promise.all([
+        uploadFile(cv, cvRef),
+        uploadFile(ktm, ktmRef),
+        uploadFile(foto, fotoRef),
+        uploadFile(motlet, motletRef),
+        uploadFile(sk, skRef),
 
-    ]);
+      ]);
 
 
       const userData = {
@@ -374,7 +376,7 @@ export default function StepperTailwind() {
                 id="formFileMultiple"
                 multiple={false}
               />
-              <h1>{cv.name}</h1>
+              <h1 className="text-sm">{cv.name}</h1>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 KTM
               </Typography>
@@ -385,7 +387,7 @@ export default function StepperTailwind() {
                 id="formFileMultiple"
                 multiple={false}
               />
-              <h1>{ktm.name}</h1>
+              <h1 className="text-sm">{ktm.name}</h1>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Pas Foto 3x4
               </Typography>
@@ -397,7 +399,7 @@ export default function StepperTailwind() {
                 id="formFileMultiple"
                 multiple={false}
               />
-              <h1>{foto.name}</h1>
+              <h1 className="text-sm">{foto.name}</h1>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Surat Komitmen
               </Typography>
@@ -408,7 +410,7 @@ export default function StepperTailwind() {
                 id="formFileMultiple"
                 multiple={false}
               />
-              <h1>{sk.name}</h1>
+              <h1 className="text-sm">{sk.name}</h1>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Motivation Letter
               </Typography>
@@ -416,11 +418,11 @@ export default function StepperTailwind() {
                 onChange={(e: any) => setMotlet(e?.target?.files[0])}
                 className="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
                 type="file"
-              
+
                 id="formFileMultiple"
                 multiple={false}
               />
-              <h1>{motlet.name}</h1>
+              <h1 className="text-sm">{motlet.name}</h1>
             </div>
           )}
           {activeStep === 2 && (
@@ -430,40 +432,65 @@ export default function StepperTailwind() {
                 ECS?
               </h1>
 
-              <div className="flex flex-row gap-2 w-full mt-10 justify-center">
+              <div className="flex flex-col gap-2 w-full text-left mt-10">
                 <h1 className="">Apakah anda yakin? [Y/n]</h1>
-                <input
-                  value={y}
-                  maxLength={1}
-                  onChange={(e) => setY(e.target.value)}
-                  ref={yInput}
-                  className="w-[16px] focus:outline-none"
-                  type="text"
-                />
+                <div className="flex gap-2">
+                  <h1>$</h1>
+                  <input
+                    value={y}
+                    onChange={(e) => setY(e.target.value)}
+                    ref={yInput}
+                    className=" focus:outline-none"
+                    type="text"
+                  />
+                </div>
+
               </div>
             </div>
           )}
         </div>
-        {isSuccess && (
+        {isSubmit && (
           <TypeAnimation
             className="pb-20"
             style={{ whiteSpace: "pre-line", height: "80px", display: "block" }}
             sequence={[
+              `Memeriksa kesalahan`,
+              1000,
+              error ?
               `Memeriksa kesalahan
-        Memeriksa data
-        Memeriksa dokumen
-        Menyimpan data ke dalam database
-        Menyimpan dokumen ke dalam database`,
+              Error: ${error}`:
+              `Memeriksa kesalahan
+              Memeriksa data`,
+              2000,
+              ()=>{ error &&
+                setIsSubmit(false)
+              },
+
+              1000,
+              `Memeriksa kesalahan
+              Memeriksa data
+              Memeriksa dokumen`,
+              500,
+              `Memeriksa kesalahan
+              Memeriksa data
+              Memeriksa dokumen
+              Menyimpan data ke dalam database`,
               2000,
               `Memeriksa kesalahan
-        Memeriksa data
-        Memeriksa dokumen
-        Menyimpan data ke dalam database
-        Menyimpan dokumen ke dalam database
-        Berhasil`,
+              Memeriksa data
+              Memeriksa dokumen
+              Menyimpan data ke dalam database
+              Menyimpan dokumen ke dalam database`,
+              2000,
+              `Memeriksa kesalahan
+              Memeriksa data
+              Memeriksa dokumen
+              Menyimpan data ke dalam database
+              Menyimpan dokumen ke dalam database
+              Berhasil`,
               2000,
               () => {
-                setTypingStatus("done");
+                !error ? setTypingStatus("done") : setTypingStatus("error");
               },
             ]}
             speed={80}
