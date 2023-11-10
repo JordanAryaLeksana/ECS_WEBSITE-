@@ -67,7 +67,7 @@ const Home = () => {
   return (
     show ?
       <div >
-      <Head>ecs-laboratory</Head>
+      <Head><title>ecs-laboratory</title></Head>
         <Navbar></Navbar>
         <div className='flex flex-row justify-center w-full items-center lg:px-20 sm:px-10  min-h-screen' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
           {

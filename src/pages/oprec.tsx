@@ -8,7 +8,7 @@ const Oprec = () => {
   const { isDesktop } = useResponsive();
   return (
     <>
-    <Head>oprec -ecs-laboratory</Head>
+    <Head><title>oprec -ecs-laboratory</title></Head>
       <Navbar />
 
       <div
