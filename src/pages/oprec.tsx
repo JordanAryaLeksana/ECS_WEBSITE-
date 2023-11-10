@@ -12,7 +12,7 @@ const Oprec = () => {
       <Navbar />
 
       <div
-        className="min-h-screen w-full flex justify-center lg:items-center sm:  bg-cover overflow-x-hidden "
+        className="min-h-screen w-full flex justify-center items-center bg-cover overflow-x-hidden "
         style={{ backgroundImage: "url('/bg.png')" }}
       >
         {/* <div className='md:w-1/2 md:px-20 sm:w-full bg-white py-16 md:m-20 sm:m-0 rounded-3xl'>
