@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
     <Navbar></Navbar>
-    <Head>about -ecs-laboratory</Head>
+    <Head><title>about - ecs-laboratory</title></Head>
     About
     </div>
   )
