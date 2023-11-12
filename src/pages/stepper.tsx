@@ -303,7 +303,7 @@ export default function StepperTailwind() {
                 value={name}
                 crossOrigin={"anonymous"}
                 size="lg"
-                placeholder="Masukkan nama lengkap"
+
 
               
               />
@@ -318,7 +318,7 @@ export default function StepperTailwind() {
                 type="text"
                 crossOrigin={"anonymous"}
                 size="lg"
-                placeholder="Masukkan NRP"
+        
           
           
               />
@@ -333,7 +333,7 @@ export default function StepperTailwind() {
                 type="text"
                 crossOrigin={"anonymous"}
 
-                placeholder="Masukkan Nomor WA"
+  
             
                
               />
@@ -347,7 +347,7 @@ export default function StepperTailwind() {
                 type="email"
                 crossOrigin={"anonymous"}
                 size="lg"
-                placeholder="Masukkan email"
+ 
               
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -360,7 +360,7 @@ export default function StepperTailwind() {
                 crossOrigin={"anonymous"}
                 size="lg"
                 value={password}
-                placeholder="Masukkan password"
+
               
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -373,8 +373,8 @@ export default function StepperTailwind() {
                 value={cPassword}
                 crossOrigin={"anonymous"}
                 size="lg"
-                placeholder="Masukkan konfirmasi password"
-               
+                
+              
               />
             </div>
           )}
