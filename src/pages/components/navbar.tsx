@@ -23,7 +23,7 @@ const Navbar = () => {
         </Link>
         <div className='flex flex-row items-center gap-10 text-kuning'>
           <Link href='/'>Home</Link>
-          <Link href='/about'>About</Link>
+          {/* <Link href='/about'>About</Link> */}
           <Link href={'/oprec'}>Oprec</Link>
 
         </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
             </div>
             <motion.div transition={{duration:0.4}} initial={{opacity:0}} animate={{opacity:1}} className='flex flex-col items-center gap-8 text-center py-14 bg-gray-800 text-white'>
               <Link href='/'>Home</Link>
-              <Link href='/about'>About</Link>
+              // <Link href='/about'>About</Link>
               <Link href={'/oprec'}>Oprec</Link>
             </motion.div></div>
         }
