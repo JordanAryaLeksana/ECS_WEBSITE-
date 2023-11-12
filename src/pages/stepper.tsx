@@ -298,6 +298,7 @@ export default function StepperTailwind() {
                 Nama Lengkap
               </Typography>
               <Input
+              label="Nama Lengkap"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 crossOrigin={"anonymous"}
@@ -311,6 +312,7 @@ export default function StepperTailwind() {
               </Typography>
 
               <Input
+              label="NRP"
                 onChange={(e) => setNrp(e.target.value)}
                 value={nrp}
                 type="text"
@@ -325,6 +327,7 @@ export default function StepperTailwind() {
               </Typography>
 
               <Input
+              label="Nomor WA"
                 onChange={(e) => setWa(e.target.value)}
                 value={wa}
                 type="text"
@@ -338,6 +341,7 @@ export default function StepperTailwind() {
                 Email
               </Typography>
               <Input
+              label="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 type="email"
@@ -350,6 +354,7 @@ export default function StepperTailwind() {
                 Password
               </Typography>
               <Input
+              label="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 crossOrigin={"anonymous"}
@@ -362,6 +367,7 @@ export default function StepperTailwind() {
                 Konfirmasi Password
               </Typography>
               <Input
+              label="Konfirmasi Password"
                 onChange={(e) => setCPassword(e.target.value)}
                 type="password"
                 value={cPassword}
