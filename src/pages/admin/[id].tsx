@@ -45,6 +45,7 @@ const Admin = () => {
                     <th className="px-4 py-2">Nama</th>
                     <th className="px-4 py-2">Email</th>
                     <th className="px-4 py-2">NRP</th>
+                    <th className="px-4 py-2">WA</th>
                     <th className="px-4 py-2">CV</th>
                     <th className="px-4 py-2">MotLet</th>
                     <th className="px-4 py-2">Pas Foto</th>
@@ -59,6 +60,7 @@ const Admin = () => {
                       <td className="px-4 py-2">{item.name}</td>
                       <td className="px-4 py-2">{item.email}</td>
                       <td className="px-4 py-2">{item.nrp}</td>
+                      <td className="px-4 py-2">{item.wa}</td>
                       <td className="px-4 py-2 text-center">
                         <a className='p-3 py-1 bg-yellow-500 rounded-2xl' href={item.cv} target="_blank" rel="noopener noreferrer">
                           Open
