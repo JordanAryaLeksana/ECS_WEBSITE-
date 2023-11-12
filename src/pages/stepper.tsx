@@ -32,6 +32,7 @@ export default function StepperTailwind() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLastStep, setIsLastStep] = React.useState(false);
   const [typingStatus, setTypingStatus] = React.useState("");
+  const [wa, setWa] = React.useState("");
   const [cvUrl, setCvUrl] = React.useState("");
   const [isFirstStep, setIsFirstStep] = React.useState(false);
   const [email, setEmail] = useState("");
@@ -92,6 +93,11 @@ export default function StepperTailwind() {
     if (email === "") {
       setError("Email is required");
       toast("Email is required");
+      return;
+    }
+    if (wa === ""){
+      setError("Whatsapp is required");
+      toast("Whatsapp is required");
       return;
     }
 
@@ -191,6 +197,7 @@ export default function StepperTailwind() {
         password: password,
         name: name,
         nrp: nrp,
+        wa: wa,
         cv: cvUrl,
         ktm: ktmUrl,
         foto: fotoUrl,
@@ -312,6 +319,22 @@ export default function StepperTailwind() {
                 crossOrigin={"anonymous"}
                 size="lg"
                 placeholder="Masukkan NRP"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+               <Typography variant="h6" color="blue-gray" className="-mb-3">
+                Nomor WA
+              </Typography>
+
+              <Input
+                onChange={(e) => setWa(e.target.value)}
+                value={wa}
+                type="text"
+                crossOrigin={"anonymous"}
+                size="lg"
+                placeholder="Masukkan Nomor WA"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
