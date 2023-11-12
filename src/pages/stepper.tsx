@@ -380,6 +380,7 @@ export default function StepperTailwind() {
           )}
           {activeStep === 1 && (
             <div className="w-full flex-col gap-4 flex">
+            <Link target={"_blank"} href={'https://docs.google.com/document/d/10T_NcsF5CxziQ2dt8Y2P3InMySAYmIHv/edit?usp=share_link&ouid=104950261130230777739&rtpof=true&sd=true'} className="w-full border-2 text-black rounded-xl py-2  text-center ">Download Template Surat Komitmen</Link>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Curriculum Vitae
               </Typography>
@@ -437,6 +438,7 @@ export default function StepperTailwind() {
                 multiple={false}
               />
               <h1 className="text-sm">{motlet.name}</h1>
+              
             </div>
           )}
           {activeStep === 2 && (
