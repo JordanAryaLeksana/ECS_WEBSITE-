@@ -5,12 +5,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/ReactToastify.css'
 import Head from 'next/head';
 const Admin = () => {
-    const username = 'admin';
-    const password = 'adminecsoke';
+    const username = process.env.NEXT_PUBLIC_USER
+    const password = process.env.NEXT_PUBLIC_PW
+
     const [inputUsername, setInputUsername] = React.useState('');
     const [inputPassword, setInputPassword] = React.useState('');
     const [isLogin, setIsLogin] = React.useState(false);
-    const secret_key = 'login-admin-ecs-success--admin';
+    const secret_key = process.env.NEXT_PUBLIC_DR;
     const { push } = useRouter();
 
     const handleLogin = () => {

@@ -53,7 +53,7 @@ const Admin = () => {
      <div className='w-full min-h-screen' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
      <div >
     <Head><title>admin - ecs-laboratory</title></Head>
-      {query.id !== 'login-admin-ecs-success--admin' ? (
+      {query.id !== 'ywgddtewfdf2e3edfett33et36e' ? (
         <div className="text-center py-8">Tidak ada apa-apa di sini</div>
       ) : (
         <div className="mx-auto max-w-screen-lg p-8">
