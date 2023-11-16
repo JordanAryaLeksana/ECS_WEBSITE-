@@ -18,7 +18,7 @@ const Oprec = () => {
       >
        
         {isDesktop ? (
-          <div className="bg-white py-16 w-1/2 px-20 mx-20 rounded-3xl">
+          <div className="bg-white py-16 my-10 w-1/2 px-20 mx-20 rounded-3xl">
             <StepperTailwind></StepperTailwind>
           </div>
         ) : (
