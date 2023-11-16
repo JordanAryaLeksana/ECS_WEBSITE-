@@ -3,31 +3,55 @@ import React, { useEffect, useState } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
 import { auth, db } from '@/firebase/firebase_config';
 import Head from 'next/head';
+import * as XLSX from 'xlsx'
+import {saveAs} from 'file-saver';
 
 const Admin = () => {
   const { query, push } = useRouter();
   const [data, setData] = useState<any>(null);
-
+  
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        if (query.id === 'tes') {
-          console.log('tes');
-        } else {
-          const querySnapshot = await getDocs(collection(db, 'users'));
-          const userData = querySnapshot.docs.map((doc) => doc.data());
-          setData(userData);
-        }
-      } catch (error) {
-        console.error('Error getting documents: ', error);
-      }
-    };
+  try {
+    if (query.id === 'tes') {
+      console.log('tes');
+    } else {
+      const querySnapshot = await getDocs(collection(db, 'users'));
+      const userData = querySnapshot.docs.map((doc) => {
+        // Get all data from the document
+        const fullData = doc.data();
+
+        // Exclude the password field
+        const { password, ...userDataWithoutPassword } = fullData;
+
+        return userDataWithoutPassword;
+      });
+
+      setData(userData);
+    }
+  } catch (error) {
+    console.error('Error getting documents: ', error);
+  }
+};
 
     fetchData();
   }, [query.id, push]);
-
+  const exportToExcel = () => {
+    
+    const workBook = XLSX.utils.book_new();
+    const workSheet = XLSX.utils.json_to_sheet(data);
+    XLSX.utils.book_append_sheet(workBook, workSheet, 'users');
+    //Buffer
+    let buf = XLSX.write(workBook, { bookType: 'xlsx', type: 'buffer' });
+    //Binary string
+    XLSX.write(workBook, { bookType: 'xlsx', type: 'binary' });
+    //Download
+    XLSX.writeFile(workBook, 'users.xlsx');
+  }
   return (
-    <div className='w-full min-h-screen' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
+    
+     <div className='w-full min-h-screen' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
+     <div >
     <Head><title>admin - ecs-laboratory</title></Head>
       {query.id !== 'login-admin-ecs-success--admin' ? (
         <div className="text-center py-8">Tidak ada apa-apa di sini</div>
@@ -90,11 +114,15 @@ const Admin = () => {
                   ))}
                 </tbody>
               </table>
+             
             </div>
           )}
         </div>
+        
       )}
+      
     </div>
+     <button onClick={exportToExcel} className='flex items-center justify-center mt-20 w-full p-3 py-2 border-2 bg-black/75 text-white  rounded-xl'>Download XLSX</button></div>
   );
 };
 
