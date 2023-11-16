@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useCallback } from "react";
+import { Select, Option } from "@material-tailwind/react";
 import {
   Stepper,
   Step,
@@ -29,6 +30,10 @@ import { only } from "node:test";
 import { setDoc, doc, collection } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 export default function StepperTailwind() {
+  const [selected1, setSelected1] = React.useState<any>("");
+  const [selected2, setSelected2] = React.useState<any>("");
+  const [selected3, setSelected3] = React.useState<any>("");
+  const [selected4, setSelected4] = React.useState<any>("");
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLastStep, setIsLastStep] = React.useState(false);
   const [typingStatus, setTypingStatus] = React.useState("");
@@ -95,7 +100,7 @@ export default function StepperTailwind() {
       toast("Email is required");
       return;
     }
-    if (wa === ""){
+    if (wa === "") {
       setError("Whatsapp is required");
       toast("Whatsapp is required");
       return;
@@ -158,7 +163,6 @@ export default function StepperTailwind() {
       toast("SK is required");
       return;
     }
-
     if (password !== cPassword) {
       setError("Password does not match");
       toast("Password does not match");
@@ -198,6 +202,10 @@ export default function StepperTailwind() {
         name: name,
         nrp: nrp,
         wa: wa,
+        pilihan1: selected1,
+        pilihan2: selected2,
+        pilihan3: selected3,
+        pilihan4: selected4,
         cv: cvUrl,
         ktm: ktmUrl,
         foto: fotoUrl,
@@ -298,89 +306,118 @@ export default function StepperTailwind() {
                 Nama Lengkap
               </Typography>
               <Input
-              label="Nama Lengkap"
+                label="Nama Lengkap"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 crossOrigin={"anonymous"}
                 size="lg"
 
 
-              
+
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 NRP
               </Typography>
 
               <Input
-              label="NRP"
+                label="NRP"
                 onChange={(e) => setNrp(e.target.value)}
                 value={nrp}
                 type="text"
                 crossOrigin={"anonymous"}
                 size="lg"
-        
-          
-          
+
+
+
               />
-               <Typography variant="h6" color="blue-gray" className="-mb-3">
+              <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Nomor WA
               </Typography>
 
               <Input
-              label="Nomor WA"
+                label="Nomor WA"
                 onChange={(e) => setWa(e.target.value)}
                 value={wa}
                 type="text"
                 crossOrigin={"anonymous"}
 
-  
-            
-               
+
+
+
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Email
               </Typography>
               <Input
-              label="Email"
+                label="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 type="email"
                 crossOrigin={"anonymous"}
                 size="lg"
- 
-              
+
+
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Password
               </Typography>
               <Input
-              label="Password"
+                label="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 crossOrigin={"anonymous"}
                 size="lg"
                 value={password}
 
-              
+
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Konfirmasi Password
               </Typography>
               <Input
-              label="Konfirmasi Password"
+                label="Konfirmasi Password"
                 onChange={(e) => setCPassword(e.target.value)}
                 type="password"
                 value={cPassword}
                 crossOrigin={"anonymous"}
                 size="lg"
-                
-              
+
+
               />
+              <Typography variant="h6" color="blue-gray" className="-mb-3">
+                Bidang Minat
+              </Typography>
+              <div className="flex flex-col gap-4 w-full ">
+                <Select value={selected1} onChange={(e:any) => setSelected1(e)} size="lg" variant="outlined" label="Pilihan 1">
+                  <Option value="AI">Artificial Intelligence</Option>
+                  <Option value="IA">Industrial Automation</Option>
+                  <Option value="IoT">Internet of Things</Option>
+                  <Option value="PD">Product Design</Option>
+                </Select>
+                <Select value={selected2} onChange={(e:any) => setSelected2(e)} size="lg" variant="outlined" label="Pilihan 2">
+                  <Option value="AI">Artificial Intelligence</Option>
+                  <Option value="IA">Industrial Automation</Option>
+                  <Option value="IoT">Internet of Things</Option>
+                  <Option value="PD">Product Design</Option>
+                </Select>
+                <Select value={selected3} onChange={(e:any) => {setSelected3(e)}} size="lg" variant="outlined" label="Pilihan 3">
+                  <Option value="AI">Artificial Intelligence</Option>
+                  <Option value="IA">Industrial Automation</Option>
+                  <Option value="IoT">Internet of Things</Option>
+                  <Option value="PD">Product Design</Option>
+                </Select>
+                <Select value={selected4} onChange={(e:any) => setSelected4(e)} size="lg" variant="outlined" label="Pilihan 4">
+                  <Option value="AI">Artificial Intelligence</Option>
+                  <Option value="IA">Industrial Automation</Option>
+                  <Option value="IoT">Internet of Things</Option>
+                  <Option value="PD">Product Design</Option>
+                </Select>
+              </div>
             </div>
           )}
           {activeStep === 1 && (
             <div className="w-full flex-col gap-4 flex">
-            <Link target={"_blank"} href={'https://docs.google.com/document/d/10T_NcsF5CxziQ2dt8Y2P3InMySAYmIHv/edit?usp=share_link&ouid=104950261130230777739&rtpof=true&sd=true'} className="w-full border-2 text-black rounded-xl py-2  text-center ">Download Template Surat Komitmen</Link>
+              <Link target={"_blank"} href={'https://docs.google.com/document/d/10T_NcsF5CxziQ2dt8Y2P3InMySAYmIHv/edit?usp=share_link&ouid=104950261130230777739&rtpof=true&sd=true'} className="w-full border-2 text-black rounded-xl py-2  text-center font-semibold">Download Template Surat Komitmen</Link>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Curriculum Vitae
               </Typography>
@@ -438,7 +475,7 @@ export default function StepperTailwind() {
                 multiple={false}
               />
               <h1 className="text-sm">{motlet.name}</h1>
-              
+
             </div>
           )}
           {activeStep === 2 && (
@@ -473,13 +510,14 @@ export default function StepperTailwind() {
               `Memeriksa kesalahan`,
               1000,
               error ?
-              `Memeriksa kesalahan
-              Error: ${error}`:
-              `Memeriksa kesalahan
+                `Memeriksa kesalahan
+              Error: ${error}` :
+                `Memeriksa kesalahan
               Memeriksa data`,
               2000,
-              ()=>{ error &&
-                setIsSubmit(false)
+              () => {
+                error &&
+                  setIsSubmit(false)
               },
 
               1000,

@@ -56,7 +56,7 @@ const Success = () => {
   return (
     user &&
     <div className='flex w-full h-screen justify-center items-center p-10' style={{backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat'}}>
-    <Head><title>{id} -success -ecs-laboratory</title></Head>
+    <Head><title>{id} -ecs-laboratory</title></Head>
     
         
           {
