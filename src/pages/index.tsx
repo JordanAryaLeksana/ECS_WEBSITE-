@@ -11,6 +11,7 @@ const TekaTeki = () => {
     const answer1 = process.env.SERVER_ANSWER1;
     const answer2 = process.env.SERVER_ANSWER2;
     const answer3 = process.env.SERVER_ANSWER3;
+    
     console.log(answer1, answer2, answer3)
     const [inputAnswer1, setInputAnswer1] = React.useState('');
     const [inputAnswer2, setInputAnswer2] = React.useState('');
