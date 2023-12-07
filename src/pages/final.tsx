@@ -7,24 +7,25 @@ import Head from 'next/head';
 import { unstable_noStore as noStore } from 'next/cache';
 import useResponsive from '@/components/useResponsive';
 import axios from 'axios';
+
 const TekaTeki = () => {
     noStore();
     const {isMobile, isDesktop}=useResponsive()
+    const [inputUsername, setInputUsername] = React.useState('');
+    const [inputPassword, setInputPassword] = React.useState('');
     const [inputAnswer1, setInputAnswer1] = React.useState('');
     const [inputAnswer2, setInputAnswer2] = React.useState('');
-    const [inputAnswer3, setInputAnswer3] = React.useState('');
-    const [isLogin, setIsLogin] = React.useState(false);
     const { push } = useRouter();
-    const secretUrl = process.env.NEXT_PUBLIC_API_URL
+    const secretUrl = process.env.NEXT_PUBLIC_API_URL3
 
-    const handleLogin = () => {
+   const handleLogin = () => {
         axios.post(`/api/${secretUrl}`, {
-            useranswer1: inputAnswer1,
-            useranswer2: inputAnswer2,
-            useranswer3: inputAnswer3
+            useranswer7: inputAnswer1,
+            useranswer8: inputAnswer2,
         })
             .then(res => {
-                push('/2')
+                console.log(res)
+                push(`/selamat/${res.data.secretKey}`)
             })
             .catch(err => {
                 toast.error("Wrong answer")
@@ -36,7 +37,7 @@ const TekaTeki = () => {
         <div className='flex flex-col items-center justify-center min-h-screen ' >
             <div className={`flex flex-col gap-6 justify-center items-center text-left w-fit p-10 ${!isDesktop && 'text-[12px]'}`}>
                 <div className={`flex flex-row justify-start items-center w-full gap-2 `}>
-                    <h1>Makanan favoritku adalah </h1>
+                    <h1>Saya sering makan </h1>
                     <input
                         type="text"
                         className='bg-transparent border-b-2 border-black focus:outline-none w-[140px]'
@@ -47,7 +48,7 @@ const TekaTeki = () => {
                     
                 </div>
                 <div className='flex flex-row gap-4 justify-start items-center w-full'>
-                <h1>karena </h1>
+                <h1>karena berasal dari </h1>
                     <div className='flex flex-row'>
                     
                         <input
@@ -57,15 +58,8 @@ const TekaTeki = () => {
                             value={inputAnswer2}
                             onChange={(e) => setInputAnswer2(e.target.value)}
                         />
-                        <h1>nya</h1>
                     </div>
-                    <input
-                        type="text"
-                        className='bg-transparent border-b-2 border-black focus:outline-none w-[80px]'
-                        maxLength={10}
-                        value={inputAnswer3}
-                        onChange={(e) => setInputAnswer3(e.target.value)}
-                    />
+                    
                 </div>
                 <Button className='w-full' onClick={handleLogin}>
                     Oke

@@ -7,24 +7,27 @@ import Head from 'next/head';
 import { unstable_noStore as noStore } from 'next/cache';
 import useResponsive from '@/components/useResponsive';
 import axios from 'axios';
+
 const TekaTeki = () => {
     noStore();
     const {isMobile, isDesktop}=useResponsive()
+    const [inputUsername, setInputUsername] = React.useState('');
+    const [inputPassword, setInputPassword] = React.useState('');
     const [inputAnswer1, setInputAnswer1] = React.useState('');
     const [inputAnswer2, setInputAnswer2] = React.useState('');
     const [inputAnswer3, setInputAnswer3] = React.useState('');
     const [isLogin, setIsLogin] = React.useState(false);
     const { push } = useRouter();
-    const secretUrl = process.env.NEXT_PUBLIC_API_URL
+    const secretUrl = process.env.NEXT_PUBLIC_API_URL2
 
     const handleLogin = () => {
         axios.post(`/api/${secretUrl}`, {
-            useranswer1: inputAnswer1,
-            useranswer2: inputAnswer2,
-            useranswer3: inputAnswer3
+            useranswer4: inputAnswer1,
+            useranswer5: inputAnswer2,
+            useranswer6: inputAnswer3
         })
             .then(res => {
-                push('/2')
+                push('/final')
             })
             .catch(err => {
                 toast.error("Wrong answer")
@@ -36,7 +39,7 @@ const TekaTeki = () => {
         <div className='flex flex-col items-center justify-center min-h-screen ' >
             <div className={`flex flex-col gap-6 justify-center items-center text-left w-fit p-10 ${!isDesktop && 'text-[12px]'}`}>
                 <div className={`flex flex-row justify-start items-center w-full gap-2 `}>
-                    <h1>Makanan favoritku adalah </h1>
+                    <h1>Saya tidak suka </h1>
                     <input
                         type="text"
                         className='bg-transparent border-b-2 border-black focus:outline-none w-[140px]'
@@ -57,7 +60,7 @@ const TekaTeki = () => {
                             value={inputAnswer2}
                             onChange={(e) => setInputAnswer2(e.target.value)}
                         />
-                        <h1>nya</h1>
+                        <h1>memasaknya</h1>
                     </div>
                     <input
                         type="text"

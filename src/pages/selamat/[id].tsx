@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import BarCode from 'react-barcode'
@@ -13,29 +14,13 @@ const Selamat = () => {
             </div>
         )
     }
-    useEffect(() => {
-        fetch(`/api/${secretUrl}`)
-            .then(res => res.json())
-            .then(data => {
-                setId(data.secretKey)
-            })
-    }, [])
-    if (query.id === id) {
+
         return (
             <div>
                 <div>
 
                     <div className='bg-white p-20 flex flex-col justify-center items-center'>
-
-                        <Code decimal={73}></Code>
-                        <Code decimal={3}></Code>
-                        <Code decimal={51}></Code>
-                        <Code decimal={7}></Code>
-                        <Code decimal={126}></Code>
-                        <Code decimal={116}></Code>
-                        <Code decimal={1}></Code>
-                        <Code decimal={9}></Code>
-                        <Code decimal={110}></Code>
+                        <h1>Terima kasih sudah memecahkan game dari ECS. Pengumuman akan ditampilkan pada halaman ini mulai pukul 19.00 tanggal 8 Desember 2023.</h1>
                     </div>
 
 
@@ -43,14 +28,8 @@ const Selamat = () => {
 
             </div>
         )
-    }
-    else {
-        setTimeout(() => {
-            return (
-            <div className='flex flex-col justify-center items-center text-[40px] font-extrabold h-screen bg-black text-white'>hahaha, salah halaman</div>
-        )
-        }, 3000)
-    }
+   
+    
 
 }
 

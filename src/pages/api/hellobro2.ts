@@ -15,16 +15,20 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const secretKey = process.env.SERVER_SECRET_KEY;
   if(req.method === 'POST') {
     console.log(req.body)
-    if(req.body.useranswer1.toLowerCase() !== answer1) {
+    if(req.body.useranswer4.toLowerCase() !== answer4) {
       res.status(400).json({ error: 'Wrong answer 1' });
       return;
     }
-    if(req.body.useranswer2.toLowerCase() !== answer2) {
+    if(req.body.useranswer5.toLowerCase() !== answer5) {
       res.status(400).json({ error: 'Wrong answer 2' });
       return;
     }
+    if(req.body.useranswer6.toLowerCase() !== answer6) {
+      res.status(400).json({ error: 'Wrong answer 3' });
+      return;
+    }
+    res.status(200).json({status:"berhasil"});
   
-  res.status(200).json({status:"berhasil"});
   }
   else{
     res.status(400).json({ error: 'Wrong method' });
