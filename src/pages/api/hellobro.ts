@@ -14,7 +14,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const answer9 = process.env.SERVER_ANSWER9;
   const secretKey = process.env.SERVER_SECRET_KEY;
   if(req.method === 'POST') {
-    console.log(req.body)
+
     if(req.body.useranswer1.toLowerCase() !== answer1) {
       res.status(400).json({ error: 'Wrong answer 1' });
       return;
