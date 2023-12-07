@@ -24,7 +24,7 @@ const TekaTeki = () => {
             useranswer8: inputAnswer2,
         })
             .then(res => {
-                console.log(res)
+    
                 push(`/selamat/${res.data.secretKey}`)
             })
             .catch(err => {
