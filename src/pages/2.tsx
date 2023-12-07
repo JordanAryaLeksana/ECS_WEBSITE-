@@ -51,7 +51,7 @@ const TekaTeki = () => {
                 </div>
                 <div className='flex flex-row gap-4 justify-start items-center w-full'>
                 <h1>karena </h1>
-                    <div className='flex flex-row'>
+               
                     
                         <input
                             type="text"
@@ -61,7 +61,7 @@ const TekaTeki = () => {
                             onChange={(e) => setInputAnswer2(e.target.value)}
                         />
                         <h1>memasaknya</h1>
-                    </div>
+        
                     <input
                         type="text"
                         className='bg-transparent border-b-2 border-black focus:outline-none w-[80px]'
