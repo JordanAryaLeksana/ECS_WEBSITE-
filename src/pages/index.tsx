@@ -14,10 +14,10 @@ const TekaTeki = () => {
     const [inputAnswer3, setInputAnswer3] = React.useState('');
     const [isLogin, setIsLogin] = React.useState(false);
     const { push } = useRouter();
-    
+    const secretUrl = process.env.NEXT_PUBLIC_API_URL
 
     const handleLogin = () => {
-        fetch(`/api/${process.env.NEXT_PUBLIC_API_URL}`)
+        fetch(`/api/${secretUrl}`)
             .then(res => res.json())
             .then(data => {
                 if (inputAnswer1.toLowerCase() != data.answer1) {

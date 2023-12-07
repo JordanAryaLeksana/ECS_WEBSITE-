@@ -4,6 +4,7 @@ import BarCode from 'react-barcode'
 const Selamat = () => {
     const {query} = useRouter()
     const [id, setId] = React.useState('')
+    const secretUrl = process.env.NEXT_PUBLIC_API_URL
      function Code({decimal}:any) {
         decimal = Math.sinh(decimal)
         return (
@@ -13,7 +14,7 @@ const Selamat = () => {
         )
       }
     useEffect(() => {
-        fetch(`/api/${process.env.NEXT_PUBLIC_API_URL}`)
+        fetch(`/api/${secretUrl}`)
             .then(res => res.json())
             .then(data => {
                 setId(data.secretKey)
