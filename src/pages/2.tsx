@@ -51,8 +51,6 @@ const TekaTeki = () => {
                 </div>
                 <div className='flex flex-row gap-4 justify-start items-center w-full'>
                 <h1>karena </h1>
-               
-                    
                         <input
                             type="text"
                             className='bg-transparent border-b-2 border-black focus:outline-none w-[80px]'
