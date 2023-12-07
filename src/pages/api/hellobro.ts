@@ -23,6 +23,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       res.status(400).json({ error: 'Wrong answer 2' });
       return;
     }
+    if(req.body.useranswer3.toLowerCase() !== answer3) {
+      res.status(400).json({ error: 'Wrong answer 3' });
+      return;
+    }
   
   res.status(200).json({status:"berhasil"});
   }
