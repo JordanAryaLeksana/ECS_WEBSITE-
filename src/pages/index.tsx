@@ -5,10 +5,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
 import Head from 'next/head';
 import { unstable_noStore as noStore } from 'next/cache';
+import useResponsive from '@/components/useResponsive';
 
 const TekaTeki = () => {
     noStore();
-
+    const {isMobile, isDesktop}=useResponsive()
+    const [inputUsername, setInputUsername] = React.useState('');
+    const [inputPassword, setInputPassword] = React.useState('');
     const [inputAnswer1, setInputAnswer1] = React.useState('');
     const [inputAnswer2, setInputAnswer2] = React.useState('');
     const [inputAnswer3, setInputAnswer3] = React.useState('');
@@ -42,7 +45,7 @@ const TekaTeki = () => {
 
     return (
         <div className='flex flex-col items-center justify-center min-h-screen ' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
-            <div className='flex flex-col gap-6 justify-center items-center text-left w-fit'>
+            <div className={`flex flex-col gap-6 justify-center items-center text-left w-fit p-10 ${isMobile && 'text-sm'}`}>
                 <div className='flex flex-row gap-4 justify-start items-center w-full'>
                     <h1>Makanan favoritku adalah </h1>
                     <input
