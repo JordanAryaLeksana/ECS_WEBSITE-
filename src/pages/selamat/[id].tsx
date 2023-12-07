@@ -20,8 +20,9 @@ const Selamat = () => {
                 setId(data.secretKey)
             })
     }, [])
-  return (
-    <div>{query.id === id ?
+    if(query.id === id){
+return (
+    <div>
     <div>
     
     <div className='bg-white p-20 flex flex-col justify-center items-center'>
@@ -39,10 +40,16 @@ const Selamat = () => {
     
     
     </div>
-    :
-    <div className='flex flex-col justify-center items-center text-[40px] font-extrabold h-screen bg-black text-white'>hahaha, salah halaman</div>
-}</div>
+    
+</div>
   )
+    }
+    else{
+        return(
+            <div className='flex flex-col justify-center items-center text-[40px] font-extrabold h-screen bg-black text-white'>hahaha, salah halaman</div>
+        )
+    }
+  
 }
 
 export default Selamat
