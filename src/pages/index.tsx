@@ -45,8 +45,8 @@ const TekaTeki = () => {
 
     return (
         <div className='flex flex-col items-center justify-center min-h-screen ' style={{ backgroundImage: "url('/bg.png')", backgroundSize: 'contain', backgroundRepeat: 'repeat' }}>
-            <div className={`flex flex-col gap-6 justify-center items-center text-left w-fit p-10 ${!isDesktop && 'text-sm'}`}>
-                <div className='flex flex-row gap-4 justify-start items-center w-full'>
+            <div className={`flex flex-col gap-6 justify-center items-center text-left w-fit p-10 ${!isDesktop && 'text-[12px]'}`}>
+                <div className={`flex flex-row justify-start items-center w-full gap-2 `}>
                     <h1>Makanan favoritku adalah </h1>
                     <input
                         type="text"
@@ -55,10 +55,12 @@ const TekaTeki = () => {
                         value={inputAnswer1}
                         onChange={(e) => setInputAnswer1(e.target.value)}
                     />
-                    <h1>karena </h1>
+                    
                 </div>
                 <div className='flex flex-row gap-4 justify-start items-center w-full'>
+                <h1>karena </h1>
                     <div className='flex flex-row'>
+                    
                         <input
                             type="text"
                             className='bg-transparent border-b-2 border-black focus:outline-none w-[80px]'
