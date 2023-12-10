@@ -2,12 +2,24 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import BarCode from 'react-barcode'
+
 const Selamat = () => {
+    
     const { query } = useRouter()
+    const [data, setData] = React.useState([])
     const [id, setId] = React.useState('')
-    const secretUrl = process.env.NEXT_PUBLIC_API_URL
+    const secretUrl = process.env.NEXT_PUBLIC_API_URL5
+    useEffect(()=>{
+        axios.get(`/api/${secretUrl}`)
+        .then(res => {
+            setData(res.data.nrp)
+        })
+        .catch(err => {
+    
+        })
+    },[])
     function Code({ decimal }: any) {
-        decimal = Math.sinh(decimal)
+        decimal = Math.sinh(decimal).toString()
         return (
             <div className=''>
                 <BarCode height={40} lineColor='rgba(10,10,10,0.03)' value={decimal} displayValue={false} ></BarCode>
@@ -20,17 +32,12 @@ const Selamat = () => {
                 <div>
 
                     <div className='bg-white p-20 flex flex-col justify-center items-center'>
-                        <Code decimal={1}></Code>
-<Code decimal={73}></Code>
-<Code decimal={3}></Code>
-<Code decimal={110}></Code>
-<Code decimal={51}></Code>
-<Code decimal={7}></Code>
-<Code decimal={126}></Code>
-<Code decimal={109}></Code>
-<Code decimal={116}></Code>
-            
-                    
+                        {
+                            data.map((item: any) => (
+                               <div key={item}>
+                                <Code decimal={item} /></div>
+                            ))
+                        }
                     </div>
 
 
