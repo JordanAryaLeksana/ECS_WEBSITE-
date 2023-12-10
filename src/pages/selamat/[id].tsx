@@ -4,7 +4,6 @@ import React, { useEffect } from 'react'
 import BarCode from 'react-barcode'
 
 const Selamat = () => {
-    
     const { query } = useRouter()
     const [data, setData] = React.useState([])
     const [id, setId] = React.useState('')
