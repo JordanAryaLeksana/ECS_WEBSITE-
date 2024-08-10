@@ -1,14 +1,35 @@
-import {Poppins} from "next/font/google"
+
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
-import {ThemeProvider } from "@material-tailwind/react";
-const poppins = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] })
+
+import { usePathname } from "next/navigation"
+import ComingSoon from "./components/comingSoon/comingsoon"
+import NavbarItem from "./components/Navbar"
+
+
+
 export default function App({ Component, pageProps }: AppProps) {
-  return(
-  <main className={poppins.className}>
-  <ThemeProvider>
-  <Component {...pageProps} />
-  </ThemeProvider>
-</main>
- )
+
+  const pathname = usePathname()
+  const comingSoonMode = process.env.NEXT_PUBLIC_COMING_SOON === 'true'
+ 
+  
+
+  if (comingSoonMode) {
+    return (
+
+      <main >
+        <ComingSoon />
+      </main>
+
+    );
+  } else
+    return (
+
+      <main >
+        <NavbarItem />
+        <Component {...pageProps} />
+      </main>
+
+    )
 }
