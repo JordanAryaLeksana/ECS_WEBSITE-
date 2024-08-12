@@ -20,7 +20,7 @@ const Button = ({
   return (
     <button
       className={clsx([
-        "py-2 px-6 w-40 rounded-3xl flex gap-2 items-center justify-center",
+        "py-2 px-6 w-40 h-12 rounded-3xl flex gap-2 items-center justify-center",
         type === "primary" && "bg-AddsOn-white font-Poppins   ",
         type === "secondary" && "border-[1px] border-AddsOn-white border-solid font-Poppins ",
         type === "tertiary" && "bg-AddsOn-white ",

@@ -1,4 +1,4 @@
-
+import Link from "next/link"
 import Image from 'next/image'
 import React from 'react'
 import Button from '../button'
@@ -20,14 +20,18 @@ const ComingSoon = () => {
           </div>
         </div>
         <div className=' flex gap-3'>
-          <Button type='primary' className=''>
-            <h1 className='text-AddsOn-gray'>Home</h1>
-            <Image src={`/logout.svg`} alt='logout' width={30} height={30} className='text-AddsOn-gray' />
-          </Button>
-          <Button type='secondary'>
-            <h1 className='text-AddsOn-white'>Instagram</h1>
-            <Image src={`/Social icon-instagram.svg`} alt='icon' width={30} height={30} className='' />
-          </Button>
+          <Link href={`/`}>
+            <Button type='primary' className='cursor-pointer'>
+              <h1 className='text-AddsOn-gray'>Home</h1>
+              <Image src={`/logout.svg`} alt='logout' width={30} height={30} className='text-AddsOn-gray' />
+            </Button>
+          </Link>
+          <Link href={`https://www.instagram.com/ecs_epits?igsh=MWRvdm13YWNiNmg3bg==`}>
+            <Button type='secondary' className='cursor-pointer'>
+              <h1 className='text-AddsOn-white'>Instagram</h1>
+              <Image src={`/Social icon-instagram.svg`} alt='icon' width={30} height={30} className='' />
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
