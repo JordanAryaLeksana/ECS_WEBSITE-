@@ -1,14 +1,19 @@
+import React from 'react';
+import Sidebar from './Sidebar/sidebar';
 
-
-import React from 'react'
-import Sidebar from '../Sidebar/sidebar'
-
-const DashboardLayout = () => {
-  return (
-    <section className='min-h-screen flex flex-row'>
-      <Sidebar/>  
-    </section>
-  )
+interface DashboardLayoutProps {
+  children: React.ReactNode;
 }
 
-export default DashboardLayout
+const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+  return (
+    <section className='min-h-screen flex flex-row bg-primary-normal-normal'>
+      <Sidebar />  
+      <main className='flex-1 m-10'>
+        {children}
+      </main>
+    </section>
+  );
+};
+
+export default DashboardLayout;

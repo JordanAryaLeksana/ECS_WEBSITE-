@@ -1,8 +1,11 @@
+import DashboardLayout from '@/components/DashboardComponents/dashboardLayout'
 import React from 'react'
 
 const Sertifikat = () => {
   return (
-    <div>Sertifikat</div>
+    <DashboardLayout>
+      <div>Sertifikat</div>
+    </DashboardLayout>
   )
 }
 

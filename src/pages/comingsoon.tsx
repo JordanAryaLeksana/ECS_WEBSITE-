@@ -21,13 +21,13 @@ const ComingSoon = () => {
         </div>
         <div className=' flex gap-3'>
           <Link href={`/`}>
-            <Button type='primary' className='cursor-pointer'>
+            <Button variant="default"  className='cursor-pointer'>
               <h1 className='text-AddsOn-gray'>Home</h1>
               <Image src={`/logout.svg`} alt='logout' width={30} height={30} className='text-AddsOn-gray' />
             </Button>
           </Link>
           <Link href={`https://www.instagram.com/ecs_epits?igsh=MWRvdm13YWNiNmg3bg==`}>
-            <Button type='secondary' className='cursor-pointer'>
+            <Button variant="outline" className='cursor-pointer'>
               <h1 className='text-AddsOn-white'>Instagram</h1>
               <Image src={`/Social icon-instagram.svg`} alt='icon' width={30} height={30} className='' />
             </Button>

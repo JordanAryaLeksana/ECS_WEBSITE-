@@ -1,8 +1,10 @@
 import React from 'react'
-
+import DashboardLayout from '@/components/DashboardComponents/dashboardLayout'
 const Penilaian = () => {
   return (
-    <div>Penilaian</div>
+    <DashboardLayout>
+      <div>Penilaian</div>
+    </DashboardLayout>
   )
 }
 

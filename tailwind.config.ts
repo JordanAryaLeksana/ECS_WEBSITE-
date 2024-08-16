@@ -12,19 +12,6 @@ const config: Config = {
         'Poppins': ['poppins', 'sans-serif'],
         'Inter': ['inter', 'sans-serif'],
       },
-      fontSize: {
-        "7xl": ["64px", "62px"],
-        "6xl": ["48px", "58px"],
-        "5xl": ["42px", "52px"],
-        "4xl": ["36px", "44px"],
-        "3xl": ["32px", "38px"],
-        "2xl": ["24px", "30px"],
-        xl: ["20px", "24px"],
-        lg: ["18px", "22px"],
-        base: ["16px", "18px"],
-        sm: ["14px", "16px"],
-        xs: ["12px", "14px"],
-      },
       colors: {
         primary: {
           light: {

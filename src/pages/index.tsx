@@ -1,9 +1,13 @@
+import Layout from "@/components/layout/Layout";
 
 const Home = () => {
     return (
-        <div className='h-screen w-screen bg-primary-normal-active' >
-          
-        </div>
+        <Layout>
+
+            <div className='h-screen w-screen ' >
+
+            </div>
+        </Layout>
     );
 }
 

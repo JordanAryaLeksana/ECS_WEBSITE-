@@ -1,8 +1,11 @@
+import DashboardLayout from '@/components/DashboardComponents/dashboardLayout'
 import React from 'react'
 
 const Tugas = () => {
   return (
-    <div>Tugas</div>
+    <DashboardLayout>
+      <div>Tugas</div>
+    </DashboardLayout>
   )
 }
 
