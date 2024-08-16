@@ -32,3 +32,8 @@ export default function App({ Component, pageProps }: AppProps) {
       </main>
     )
 }
+
+ 
+// export default function MyApp({ Component, pageProps }: AppProps) {
+//   return <Component {...pageProps} />
+// }
