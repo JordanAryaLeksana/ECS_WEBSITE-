@@ -1,8 +1,8 @@
 
 const Home = () => {
     return (
-        <div className=' ' >
-            halo
+        <div className='h-screen w-screen bg-primary-normal-active' >
+          
         </div>
     );
 }

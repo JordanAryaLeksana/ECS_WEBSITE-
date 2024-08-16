@@ -3,15 +3,15 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 
 import { usePathname } from "next/navigation"
-import ComingSoon from "./components/comingSoon/comingsoon"
-import NavbarItem from "./components/Navbar"
+import ComingSoon from "./comingsoon"
+import NavbarItem from "../components/Navbar/Navbar"
 
 
 
 export default function App({ Component, pageProps }: AppProps) {
 
   const pathname = usePathname()
-  const comingSoonMode = process.env.NEXT_PUBLIC_COMING_SOON === 'true'
+  const comingSoonMode = process.env.NEXT_PUBLIC_COMING_SOON === 'false'
  
   
 
@@ -30,6 +30,5 @@ export default function App({ Component, pageProps }: AppProps) {
         <NavbarItem />
         <Component {...pageProps} />
       </main>
-
     )
 }
