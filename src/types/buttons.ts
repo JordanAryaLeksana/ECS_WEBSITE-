@@ -30,4 +30,6 @@ export interface ButtonProps {
     suffix?: React.ReactNode | null;
     variant: keyof typeof Variants;
     isHovered?: React.ReactNode |null
+    onMouseOver? : (event: React.MouseEvent<Element, MouseEvent>) => void
+    onMouseLeave? : (event: React.MouseEvent<Element, MouseEvent>) => void
   }

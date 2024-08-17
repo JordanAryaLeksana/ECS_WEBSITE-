@@ -28,11 +28,11 @@ const Button = ({
   return (
     <button
       className={clsxm([
-        "relative rounded-3xl flex gap-2 items-center justify-center text-center",
+        "relative rounded-3xl  w-[137px] flex gap-2 items-center justify-center text-center ",
         [
-          size === 'small' && ['min-h-[32px] py-1 px-[18px]'],
-          size === 'medium' && ['min-h-[40px] py-2 px-[22px]'],
-          size === 'large' && ['min-h-[48px] py-3 px-[26px]'],
+          size === 'small' && ['min-h-[38px] py-1 px-[18px]'],
+          size === 'medium' && ['h-[42px] py-2 px-[22px]'],
+          size === 'large' && ['min-h-[50px] py-3 px-[26px]'],
         ],
         [
           variant === "default" && [
@@ -41,7 +41,7 @@ const Button = ({
           ],
           variant === "outline" && [
             "border border-AddsOn-neutral border-solid text-AddsOn-neutral",
-            isHovered && isHover && "border-AddsOn-gray text-AddsOn-gray",
+            isHovered && isHover && "border-AddsOn-gray text-AddsOn-gray ",
           ],
           variant === "text" && [
             "text-AddsOn-neutral",
@@ -58,6 +58,7 @@ const Button = ({
       {isIcon && <div>{prefix}</div>}
       {children}
       {isIcon && <div>{suffix}</div>}
+
     </button>
   );
 };
