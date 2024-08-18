@@ -9,7 +9,7 @@ import { HiLightBulb, HiOutlineLightBulb } from 'react-icons/hi';
 const Card: React.FC<CardProps> = (props) => {
     const [isHover, setIsHover] = useState(false);
     const [isClick, setIsClick] = useState(false);
-   
+
     const { className, style } = props;
     const handleMouseEnter = () => {
         if (props.Variant === 'GlassHover') {
@@ -81,7 +81,10 @@ const Card: React.FC<CardProps> = (props) => {
             )}>
 
                 <div className='w-[201px] h-[253px] bg-secondary-normal-normal rounded-2xl flex justify-center items-end absolute top-3 right-[0.4rem]'>
-                    {AddImage && <Image src={ImageSrc} alt={ImageAlt} width={Width} height={Height} className='' />}
+                    {AddImage && ImageSrc && (
+                        <Image src={ImageSrc} alt={ImageAlt || "default alt text"} width={Width} height={Height} className='' />
+                    )}
+
                 </div>
                 <div className={`absolute bottom-5 flex flex-col justify-center items-center gap-2 }`}>
                     <div className={` relative flex flex-row justify-center ${Coordinator ? 'left-[50%]' : 'left-[40%]'} `}>
