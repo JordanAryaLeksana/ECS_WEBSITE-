@@ -6,9 +6,9 @@ import Button from '../Buttons';
 import { HiOutlineChip, HiOutlineUser } from 'react-icons/hi';
 
 const links = [
-  { href: "/", label: "", imageSrc: "/Frame 136.svg", imageAlt: "logo-image", imageWidth: 50, imageHeight: 50 },
-  { href: "/about", label: "About", icon: <HiOutlineUser size={30} /> },
-  { href: "/project", label: "Project", icon: <HiOutlineChip size={30} /> }
+  { href: "/", label: "", imageSrc: "/Frame 136.png", imageAlt: "logo-image", imageWidth: 50, imageHeight: 50 },
+  { href: "/about", label: "About", icon: <HiOutlineUser size={24} /> },
+  { href: "/project", label: "Project", icon: <HiOutlineChip size={24} /> }
 ];
 
 const NavbarItem = () => {
@@ -32,7 +32,7 @@ const NavbarItem = () => {
                 {icon}
               </span>
               {pathname === href && (
-                <span className="font-inter text-base text-AddsOn-neutral">{label}</span>
+                <span className="font-inter text-base text-AddsOn-neutral ml-1">{label}</span>
               )}
             </Link>
           </li>
