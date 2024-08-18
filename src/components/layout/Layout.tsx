@@ -2,7 +2,7 @@ import * as React from 'react';
 import NavbarItem from './Navbar';
 import { usePathname } from 'next/navigation';
 import Splash from '@/pages/splash';
-
+import Image from 'next/image';
 type LayoutPros = {
   children: React.ReactNode;
   withFooter?: boolean;
@@ -26,7 +26,9 @@ export default function Layout({
   }, [loading]);
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden min-h-screen relative z-0'>
+      
+      <Image src="/Background-Default.png" alt='background' fill  className='' />
       {
         loading && isHome ?
           <Splash />

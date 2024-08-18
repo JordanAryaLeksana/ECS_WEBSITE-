@@ -5,7 +5,7 @@ import React from 'react'
 const Project = () => {
     return (
         <Layout>
-            <div className='h-screen w-screen bg-black'>Project halo </div>
+            <div className=''></div>
         </Layout>
     )
 }
