@@ -44,7 +44,7 @@ const Home = () => {
                 </span></p>
                 <div className="absolute left-0 bottom-24 flex flex-row gap-10 w-full h-fit items-center justify-center text-secondary-normal-normal z-[2]">
                     <a href=""><BiLogoLinkedin className="w-[24px] h-[24px]"></BiLogoLinkedin></a>
-                    <a href=""><BiLogoInstagram className="w-[24px] h-[24px]"></BiLogoInstagram></a>
+                    <a href="https://www.instagram.com/ecs_epits?igsh=MWRvdm13YWNiNmg3bg=="><BiLogoInstagram className="w-[24px] h-[24px]"></BiLogoInstagram></a>
                     <a href=""><BiLogoGmail className="w-[24px] h-[24px]"></BiLogoGmail></a>
                     <a href=""><BiLogoWhatsapp className="w-[24px] h-[24px]"></BiLogoWhatsapp></a>
                 </div>

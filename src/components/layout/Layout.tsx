@@ -28,7 +28,7 @@ export default function Layout({
   return (
     <div className='overflow-x-hidden min-h-screen relative z-0'>
       
-      <Image src="/Background-Default.png" alt='background' fill  className='' />
+     
       {
         loading && isHome ?
           <Splash />
