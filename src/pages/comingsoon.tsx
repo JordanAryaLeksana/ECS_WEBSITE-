@@ -29,7 +29,7 @@ const ComingSoon = () => {
           <span className='font-Poppins text-3xl  font-black text-AddsOn-neutral'>
             <Typewriter
               words={['COOKING OUR WEBSITE']}
-              loop={5}
+              loop
               cursor
               cursorStyle='_'
               typeSpeed={70}
