@@ -8,7 +8,7 @@ import { useState } from 'react';
 const Sertifikat = () => {
   const [isTrainingComplete, setIsTrainingComplete] = useState(true);
   return (
-    <div className='relative w-full h-full'>
+    <div className='relative min-w-screen min-h-screen overflow-hidden'>
       <DashboardLayout>
         <div className='absolute top-[45px] left-[350px]'>
         <Typography variant='Paragraph' size='2xl' className='text-AddsOn-neutral font-normal'>
