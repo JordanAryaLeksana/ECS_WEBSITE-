@@ -7,7 +7,6 @@ const Confirmation = () => {
 
     <Typography variant='Paragraph' size='2xl' className='text-white'>Confirmation</Typography>
 
-
   )
 }
 
