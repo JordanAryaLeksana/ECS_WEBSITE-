@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { HiOutlineBookOpen, HiOutlineClipboard, HiOutlineClipboardCheck, HiOutlineCog, HiOutlineDocumentDownload, HiOutlineLogout, HiOutlineMenu } from 'react-icons/hi';
 
+
 const Menulinks = [
   { href: "/epta/dashboard/modul", label: "Modul", icon: <HiOutlineBookOpen size={30} /> },
   { href: "/epta/dashboard/tugas", label: "Tugas", icon: <HiOutlineClipboard size={30} /> },
@@ -18,9 +19,9 @@ const Otherlinks = [
 
 const Sidebar = () => {
   const { pathname } = useRouter(); // Destructure pathname from useRouter
-
+ 
   return (
-    <div className='max-w-[310px] w-full bg-primary-normal-normal flex h-full min-h-screen flex-col items-center gap-14 justify-center border-r border-AddsOn-neutral border-solid'>
+    <div className={`max-w-[310px] w-full hidden bg-primary-normal-normal lg:flex h-full min-h-screen flex-col items-center gap-14 justify-center border-r border-AddsOn-neutral border-solid`}>
       <div className='flex flex-col items-start justify-center self-center'>
         <Image src="/EPTA TEXT.svg" alt="logo epta" width={400} height={400} className='scale-125  ' />
       </div>
