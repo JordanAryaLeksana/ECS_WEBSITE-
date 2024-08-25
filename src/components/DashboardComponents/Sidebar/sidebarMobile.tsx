@@ -23,7 +23,7 @@ const SidebarMobile = ({className}:NavbarProps) => {
     const { pathname } = useRouter(); 
   return (
     <div className={`flex flex-col w-full max-w-[310px] transition-all duration-600 h-full items-center bg-primary-normal-normal border-r border-AddsOn-neutral border-solid justify-center gap-16 absolute lg:hidden  ${className}`}>
-    <ul className='flex flex-col items-start  space-y-14 text-AddsOn-neutral'>
+    <ul className='flex flex-col items-start space-y-16 text-AddsOn-neutral'>
       {Menulinks.map(({ href, label, icon }) => (
         <li key={`${href} ${label}`} className='mr-20 flex flex-row gap-6 '>
           <span className={pathname === href ? 'text-accent-warning-700' : 'text-secondary-light-light'}>

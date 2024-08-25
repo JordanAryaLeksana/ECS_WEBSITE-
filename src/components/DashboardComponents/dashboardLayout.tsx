@@ -38,10 +38,10 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
     <section className='min-h-screen flex flex-col lg:flex-row bg-primary-normal-normal '>
       <div
-        className='flex flex-row items-center justify-between p-6 w-screen absolute lg:hidden'
+        className='flex flex-row items-center justify-between p-6 w-screen absolute lg:hidden bg-AddsOn-gray'
         onClick={handleClick}
       >
-        <HiOutlineMenu size={25} color='white' className='ml-3' />
+        <HiOutlineMenu size={25}  className='ml-3 text-secondary-normal-normal' />
         <Image src="/EPTA TEXT.svg" alt="logo epta" width={125} height={125} className='' />
       </div>
       {/* Sidebar mobile with ref */}
@@ -52,7 +52,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         />
       </div>
       <Sidebar />
-      <main className='flex-1 lg:m-10 my-20 mx-10'>
+      <main className='flex-1 lg:m-10 my-28 mx-10'>
         {children}
       </main>
     </section>

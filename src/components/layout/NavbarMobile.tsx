@@ -1,22 +1,20 @@
+import { useRouter } from 'next/router';
+import React from 'react'
+import { HiOutlineChat, HiOutlineChip, HiOutlineUser } from 'react-icons/hi';
 import Link from 'next/link';
 import Image from 'next/image';
-import React from 'react';
-import { useRouter } from 'next/router';
-import Button from '../Buttons';
-import { HiOutlineChip, HiOutlineUser } from 'react-icons/hi';
-
 const links = [
   { href: "/", label: "", imageSrc: "/Frame 136.png", imageAlt: "logo-image", imageWidth: 50, imageHeight: 50 },
   { href: "/about", label: "About", icon: <HiOutlineUser size={24} /> },
-  { href: "/project", label: "Project", icon: <HiOutlineChip size={24} /> }
+  { href: "/project", label: "Project", icon: <HiOutlineChip size={24} /> },
+  { href: "/", label: "", icon: <HiOutlineChat size={24} /> }
 ];
 
-const NavbarItem = () => {
-  const { pathname } = useRouter(); // Dapatkan rute saat ini
-
+const NavbarMobile = () => {
+  const { pathname } = useRouter()
   return (
-    <div className="lg:flex hidden justify-evenly gap-16 items-center px-10 fixed bg-AddsOn-gray h-[68px] top-[50px] right-1/2 translate-x-[48%] rounded-full">
-      <ul className="flex items-center gap-10">
+    <div className='fixed bottom-0 w-screen flex h-[56px] bg-AddsOn-gray justify-center lg:hidden '>
+      <ul className='flex flex-row justify-center items-center gap-10 w-full sm:justify-evenly '>
         {links.map(({ href, imageSrc, imageAlt, imageWidth, imageHeight, label, icon }) => (
           <li key={href} className="flex items-center">
             <Link href={href} className="flex items-center ">
@@ -38,11 +36,8 @@ const NavbarItem = () => {
           </li>
         ))}
       </ul>
-      <Button variant="default" onClick={() => console.log('belum tau kemana')} isHovered>
-        React Us
-      </Button>
     </div>
-  );
+  )
 }
 
-export default NavbarItem;
+export default NavbarMobile

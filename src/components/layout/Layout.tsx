@@ -3,6 +3,7 @@ import NavbarItem from './Navbar';
 import { usePathname } from 'next/navigation';
 import Splash from '@/pages/splash';
 import Image from 'next/image';
+import NavbarMobile from './NavbarMobile';
 type LayoutPros = {
   children: React.ReactNode;
   withFooter?: boolean;
@@ -36,6 +37,7 @@ export default function Layout({
           <>
             {withNavbar && <NavbarItem />}
             {children}
+            {withFooter && <NavbarMobile/>}
           </>
       }
     </div>

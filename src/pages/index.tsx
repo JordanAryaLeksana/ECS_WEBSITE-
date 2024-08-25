@@ -37,7 +37,7 @@ const Home = () => {
                 <button onClick={() => setPopup(false)} className="flex flex-row-reverse w-full p-4"><BiX size={24}></BiX></button>
             </div>}
             <div className='h-screen w-screen flex flex-col bg-primary-normal-normal justify-center items-center text-secondary-normal-normal font-Poppins'>
-                <Typography size="7xl" variant="Header" className=" font-bold">ECS LABORATORY</Typography>
+                <Typography size="7xl" variant="Header" className=" font-bold mb-6">ECS LABORATORY</Typography>
                 <Typography size="base" variant="Paragraph" className="font-base">The world where we explore <span className="ml-3 border-[1.5px] p-2 px-4 rounded-3xl border-secondary-normal-normal">
                     <motion.span key={bid}
                         initial={{ opacity: 0, x: -10 }}
