@@ -6,7 +6,7 @@ import Typography from "@/components/Typography/Typography"
 import { useState } from 'react';
 
 const Sertifikat = () => {
-  const [isTrainingComplete, setIsTrainingComplete] = useState(true);
+  const [isTrainingComplete, setIsTrainingComplete] = useState(false);
 
   return (
     <DashboardLayout>
