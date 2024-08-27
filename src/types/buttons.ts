@@ -12,8 +12,8 @@ enum SizeVariants {
 }
 
 enum TypeVariants {
-    'primary',
-    'secondary',
+    'button',
+    'submit',
 }
 
 export interface ButtonProps {

@@ -7,7 +7,7 @@ const Button = ({
   className,
   onClick,
   style,
-  type,
+  type = 'button',
   isIcon = false,
   size = "medium",
   prefix,
@@ -33,6 +33,10 @@ const Button = ({
           size === 'small' && ['min-h-[38px] py-1 px-[18px]'],
           size === 'medium' && ['h-[42px] py-2 px-[22px]'],
           size === 'large' && ['min-h-[50px] py-3 px-[26px]'],
+        ],
+        [
+          type === 'submit' && "submit",
+          type === 'button' && "div"
         ],
         [
           variant === "default" && [
