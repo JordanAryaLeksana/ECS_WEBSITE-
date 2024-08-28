@@ -7,7 +7,7 @@ import Image from 'next/image'
 export default function NotFound() {
   return (
     <div className='h-screen w-screen flex items-center justify-center bg-AddsOn-gray'>
-      <Image src={`/background-3.png`} alt='bakcground' fill />
+      <Image src={`/background-3.png`} alt='bakcground' objectFit='cover' fill />
       <div className='flex items-center justify-center w-[521px] h-[440px] bg-AddsOn-gray bg-opacity-5 border border-AddsOn-white border-opacity-55  rounded-3xl  '>
         <div className=' flex flex-col justify-center items-center gap-10'>
           <Image className='' src={`/4 _ 4.svg`} alt='logo404' width={300} height={300} />

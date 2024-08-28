@@ -20,7 +20,7 @@ const ComingSoon = () => {
 
   return (
     <div className='h-screen w-screen bg-primary-normal-normal relative '  >
-      <Image src={`/Background-Default.png`} alt='bg-1' className='' fill />
+      <Image src={`/Background-Default.png`} alt='bg-1' objectFit="cover" className='' fill />
       <div className='relative  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[440px] flex flex-col  w-full max-w-lg rounded-3xl justify-center items-center gap-10 bg-AddsOn-gray/30  border border-AddsOn-neutral'>
         <Image src={`/tool.svg`} alt='tool' width={100} height={100} />
         <div className='flex flex-col gap-5 justify-center items-center '>
