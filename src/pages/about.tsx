@@ -7,15 +7,9 @@ import Button from '@/components/Buttons'
 
 const About = () => {
     return (
-        <>
-            <Layout className=''>
-              <>
-              about
-              </>
-
-            </Layout>
-
-        </>
+        <Layout>
+           about
+        </Layout>
     )
 }
 

@@ -15,7 +15,7 @@ const NavbarItem = () => {
   const { pathname } = useRouter(); // Dapatkan rute saat ini
 
   return (
-    <div className="lg:flex hidden justify-evenly gap-16 items-center px-10 fixed bg-AddsOn-gray h-[68px] top-[50px] right-1/2 translate-x-[48%] rounded-full">
+    <div className="lg:flex hidden justify-evenly gap-16 items-center z-[50] px-10 fixed bg-AddsOn-gray h-[68px] top-[50px] right-1/2 translate-x-[48%] rounded-full">
       <ul className="flex items-center gap-10">
         {links.map(({ href, imageSrc, imageAlt, imageWidth, imageHeight, label, icon }) => (
           <li key={href} className="flex items-center">

@@ -28,8 +28,7 @@ export default function Layout({
 
   return (
     <div className='overflow-x-hidden min-h-screen relative z-0'>
-      
-     
+    
       {
         loading && isHome ?
           <Splash />
@@ -37,7 +36,7 @@ export default function Layout({
           <>
             {withNavbar && <NavbarItem />}
             {children}
-            {withFooter && <NavbarMobile/>}
+            {withFooter && <NavbarMobile />}
           </>
       }
     </div>

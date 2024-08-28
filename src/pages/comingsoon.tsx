@@ -25,7 +25,6 @@ const ComingSoon = () => {
         <Image src={`/tool.svg`} alt='tool' width={100} height={100} />
         <div className='flex flex-col gap-5 justify-center items-center '>
           <p className='font-Inter text-sm text-AddsOn-neutral '>We’re Still</p>
-
           <span className='font-Poppins text-3xl  font-black text-AddsOn-neutral'>
             <Typewriter
               words={['COOKING OUR WEBSITE']}
