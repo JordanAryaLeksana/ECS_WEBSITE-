@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import { useEffect, useState } from "react";
-import { BiLogoGmail, BiLogoInstagram, BiLogoLinkedin, BiLogoWhatsapp, BiX } from "react-icons/bi";
+import { BiLogoGmail, BiLogoInstagram, BiLogoLinkedin, BiLogoWhatsapp } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +13,32 @@ const Home = () => {
     const [bid, setBidmin] = useState("Internet of Things");
     const [popup, setPopup] = useState(true);
     const [flipped, setFlipped] = useState(false);
+    const [clipPath, setClipPath] = useState("polygon(0% 0, 55% 0, 45% 100%, 0 100%)"); // Default for desktop
+
+    useEffect(() => {
+        // Function to handle resizing and setting the appropriate clipPath
+        const handleResize = () => {
+            if (window.innerWidth < 640) {
+                // For small screens (mobile)
+                setClipPath("");
+            } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
+                // For medium screens (tablet)
+                setClipPath("");
+            } else {
+                // For large screens (desktop)
+                setClipPath("polygon(0% 0, 55% 0, 45% 100%, 0 100%)");
+            }
+        };
+
+        // Attach the event listener for window resize
+        window.addEventListener("resize", handleResize);
+
+        // Call once to set the initial value
+        handleResize();
+
+        // Clean up event listener on component unmount
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const HandleClick = () => {
         window.location.href = "/epta/register";
@@ -50,27 +76,26 @@ const Home = () => {
             />
 
             {popup && (
-                <div className="absolute bg-primary-dark-dark rounded-xl top-1/2 flex -translate-y-1/2 left-1/2 -translate-x-1/2 w-[1000px] h-[calc(100vh-68px)] z-[99999]">
-                    <div className="relative w-full h-full">
+                <div className="absolute justify-center items-center bg-inherit lg:bg-primary-dark-dark rounded-xl lg:top-1/2 flex my-4 lg:m-auto w-full lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:w-[1000px]  lg:h-[calc(100vh-68px)] z-[99999]">
+                    <div className="relative w-full h-full flex justify-center items-center">
                         <Image
                             src={`/Vector.png`}
                             alt="vector"
-                            width={1000}
-                            height={1000}
-                            className="absolute top-3 scale-y-[1.04]"
+                            fill
+                            className="absolute top-3 lg:block hidden"
                         />
                         <div
-                            className="w-full h-full rounded-xl p-8 bg-accent-warning-600 flex justify-start text-white"
+                            className="relative w-full lg:max-w-none max-w-[400px] h-full bg-accent-warning-600 rounded-xl p-8 flex justify-start text-white"
                             style={{
-                                clipPath: "polygon(0% 0, 55% 0, 45% 100%, 0 100%)", // 90-degree trapezoid
+                                clipPath: clipPath,
                             }}
                         >
-                            <div className="relative h-fit w-fit top-[10%] left-[4%] flex flex-col justify-center items-start gap-10 ">
+                            <div className="relative lg:top-[4%] lg:left-[4%] flex flex-col justify-center items-center lg:items-start gap-10">
                                 <Image src={`/EPTA TEXT 2.svg`} alt="epta 2" width={340} height={340} />
-                                <Typography variant="Paragraph" size="lg" className="font-light tracking-wide">
-                                    Lorem ipsum dolor sit amet consectetur.
-                                    <br /> Donec lectus velit tortor risus felis <br /> facilisi nullam senectus. Aliquam
-                                    neque <br /> suspendisse feugiat elit massa.
+                                <Typography variant="Paragraph" size="lg" className="font-light tracking-wide text-center lg:text-left">
+                                    Go and explore yourself,<br />
+                                    before you missed the opportunity!<br />
+                                    to unlock your what you can be.
                                 </Typography>
                                 <Button
                                     type="button"
@@ -79,26 +104,35 @@ const Home = () => {
                                     prefix={<HiExternalLink size={30} />}
                                     onClick={HandleClick}
                                     size="medium"
-                                    className="w-full text-base text-center "
+                                    className="w-full text-base text-center"
                                 >
                                     Register Now
                                 </Button>
+                                {/* Mobile and small screen close button */}
+                                <div
+                                    onClick={() => setPopup(false)}
+                                    className="relative cursor-pointer w-16 h-16 lg:hidden flex flex-row-reverse items-center justify-center rounded-full p-4 bg-white z-[1000]"
+                                >
+                                    <HiX size={24} className="text-black" />
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {/* Large screen close button */}
                     <div
                         onClick={() => setPopup(false)}
-                        className="absolute cursor-pointer top-4 right-4 flex flex-row-reverse rounded-full  p-4 bg-white"
+                        className="absolute top-4 right-4 cursor-pointer lg:flex hidden flex-row-reverse items-center justify-center rounded-full p-4 bg-white z-[1000]"
                     >
-                        <HiX size={24} />
+                        <HiX size={24} className="text-black" />
                     </div>
                 </div>
             )}
+            {/* Rest of your content */}
             <div className="h-screen w-screen flex flex-col bg-primary-normal-normal justify-center items-center text-secondary-normal-normal font-Poppins">
                 <Typography size="7xl" variant="Header" className=" font-bold mb-6">
                     ECS LABORATORY
                 </Typography>
-                <Typography size="base" variant="Paragraph" className="font-base  ">
+                <Typography size="base" variant="Paragraph" className="font-base">
                     The world where we explore{" "}
                     <span className="ml-3 border-[1.5px] p-2 px-4 rounded-3xl border-secondary-normal-normal">
                         <motion.span
@@ -130,8 +164,6 @@ const Home = () => {
                     <motion.div className="absolute right-20 bottom-24 flex flex-row-reverse gap-10 w-full h-fit text-white">
                         <motion.button
                             whileHover={{ scale: 1.2 }}
-                            onHoverStart={(e) => { }}
-                            onHoverEnd={(e) => { }}
                             animate={{ y: [0, -50, 0] }}
                             drag
                             transition={{
