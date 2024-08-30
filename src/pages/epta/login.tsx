@@ -18,6 +18,9 @@ const Login = () => {
       .min(6, 'Password must be at least 6 characters'),
   })
 
+  const HandleClick = () => {
+    window.location.href =('/epta/register')
+  }
   return (
     <section className='bg-primary-normal-normal h-screen w-screen flex justify-center items-center'>
       <Image src={`/Vector.svg`} alt='background' fill objectFit='cover' className='' />
@@ -27,12 +30,14 @@ const Login = () => {
             <Typography size='4xl' variant='Header' className='font-bold text-AddsOn-neutral'>
               Login Epta 2024
             </Typography>
-            <Typography size='base' variant='Paragraph' className='text-secondary-dark-dark'>
-              Belum Punya Akun?{' '}
-              <Link href={`/epta/register`} className='text-AddsOn-neutral'>
+            <div className='flex items-center gap-0'> 
+              <Typography size='base' variant='Paragraph' className='text-secondary-dark-dark'>
+                Belum Punya Akun?
+              </Typography>
+              <Button variant='text' size='small' className='w-14' onClick={HandleClick} >
                 Daftar
-              </Link>
-            </Typography>
+              </Button>
+            </div>
           </div>
           <FormGroup
             initialValues={{

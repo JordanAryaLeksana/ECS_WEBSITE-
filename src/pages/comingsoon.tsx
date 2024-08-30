@@ -37,10 +37,9 @@ const ComingSoon = () => {
             />
           </span>
           <div className='flex flex-col gap-2'>
-
-            <p className='font-Inter text-sm text-AddsOn-neutral text-center'>It seems like our page is under development.
-            </p>
-            <p className='font-Inter text-sm font-normal text-AddsOn-neutral text-center'>While we’re at it, go check our other stuff!</p>
+            <Typography variant="Paragraph" size="sm" className=' text-AddsOn-neutral text-center'>It seems like our page is under development.
+            </Typography>
+            <Typography  variant="Paragraph" size="sm" className='font-normal text-AddsOn-neutral text-center'>While we’re at it, go check our other stuff!</Typography>
           </div>
         </div>
         <div className=' flex gap-3'>
