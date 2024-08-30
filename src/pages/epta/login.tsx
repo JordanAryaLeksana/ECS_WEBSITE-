@@ -2,23 +2,70 @@ import React from 'react'
 import Image from 'next/image'
 import FormGroup from '@/components/Input/FormGroup'
 import * as Yup from 'yup'
-const Login = () => {
-  // const validationSchema = Yup.object().shape({
-  //   NRP: Yup.number().required('number is Requires').matches(/^[0-9]+$/, "Nomor HP must be a number"),
-  //   Password: Yup.string()
-  //   .required('Password is required')
-  //   .min(6, "Password Must Be At Least 6 Character"),
-  // }) 
-  return (
-    <section className='bg-primary-normal-normal h-screen w-screen'>
-      <Image src={`/Vector.svg`} alt='backgorund' fill objectFit='cover' className=''/>
-      <div className='max-w-[549px] w-full flex justify-center items-center'>
-        {/* <FormGroup initialValues={
-          NRP
-          Password
-          }>
+import Input from '@/components/Input/Input'
+import Typography from '@/components/Typography/Typography'
+import Link from 'next/link'
+import Button from '@/components/Buttons'
+import InputPassword from '@/components/Input/inputPassword'
 
-        </FormGroup> */}
+const Login = () => {
+  const validationSchema = Yup.object().shape({
+    NRP: Yup.string()
+      .required('Number is required')
+      .matches(/^[0-9]+$/, 'NRP must be a number'),
+    Password: Yup.string()
+      .required('Password is required')
+      .min(6, 'Password must be at least 6 characters'),
+  })
+
+  return (
+    <section className='bg-primary-normal-normal h-screen w-screen flex justify-center items-center'>
+      <Image src={`/Vector.svg`} alt='background' fill objectFit='cover' className='' />
+      <div className='relative bg-primary-normal-normal max-w-[549px] w-full h-full flex flex-col justify-center'>
+        <div className='flex flex-col p-20 gap-10'>
+          <div className='flex flex-col gap-2'>
+            <Typography size='4xl' variant='Header' className='font-bold text-AddsOn-neutral'>
+              Login Epta 2024
+            </Typography>
+            <Typography size='base' variant='Paragraph' className='text-secondary-dark-dark'>
+              Belum Punya Akun?{' '}
+              <Link href={`/epta/register`} className='text-AddsOn-neutral'>
+                Daftar
+              </Link>
+            </Typography>
+          </div>
+          <FormGroup
+            initialValues={{
+              NRP: '',
+              Password: '',
+            }}
+            onSubmit={() => console.log('submit')}
+            validationSchema={validationSchema}
+            className='flex flex-col gap-6'
+          >
+            <Input
+              label='NRP'
+              type='text'
+              name='NRP'
+              placeholder='Input Your NRP'
+              maxLength={10}
+            />
+            <InputPassword
+              label='Password'
+              required
+              name='Password'
+              placeholder='Input Your Password'
+            />
+            {/* Center the button using mx-auto */}
+            <Button
+              type='submit'
+              variant='default'
+              className='w-40 mx-auto mt-10'
+            >
+              Login
+            </Button>
+          </FormGroup>
+        </div>
       </div>
     </section>
   )
