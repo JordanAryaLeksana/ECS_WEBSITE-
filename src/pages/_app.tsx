@@ -4,7 +4,10 @@ import '../styles/globals.css'
 
 
 import ComingSoon from "./comingsoon"
-
+import Home from "./index"
+import Register from "./epta/register"
+import Payment from "./epta/payment"
+import Confirmation from "./epta/confirmation"
 
 
 
@@ -18,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
 
       <main >
-        <ComingSoon />
+        <Register />  
       </main>
 
     );
