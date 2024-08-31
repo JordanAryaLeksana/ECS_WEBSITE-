@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
 
       <main >
-        <Register />  
+        <Home/>  
       </main>
 
     );
