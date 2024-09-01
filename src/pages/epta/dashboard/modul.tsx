@@ -6,10 +6,9 @@ const Modul = () => {
   return (
     <DashboardLayout>
       <div className='flex flex-col gap-8 pt-14'>
-        <Typography variant='Header' size='4xl' className='text-AddsOn-neutral font-bold' >Modul</Typography> 
         
-        <div className='flex flex-row gap-8'>
-          <div className='w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+        <div className='flex flex-col md:flex-row gap-8'>
+          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
             <a href=""> 
               <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/PemrogramanModul.png')" }}>
                 <div>
@@ -33,7 +32,7 @@ const Modul = () => {
             </div>
           </div>
 
-          <div className='w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
             <a href="">
               <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/MLModul.png')" }}>
                 <div>
@@ -57,7 +56,7 @@ const Modul = () => {
             </div>
           </div>
 
-          <div className='w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
             <a href="">  
               <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/MicroModul.png')" }}>
                 <div>
@@ -80,11 +79,6 @@ const Modul = () => {
               </div>
             </div>
           </div>
-
-
-
-
-
         </div>
       </div>
     </DashboardLayout>
