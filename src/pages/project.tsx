@@ -12,7 +12,9 @@ const Project = () => {
                 objectFit="cover"
                 className="fixed inset-0 block"
             />
-            <div className='h-screen w-screen bg-primary-normal-normal'></div>
+            <div className='h-screen w-screen bg-primary-normal-normal'>
+                
+            </div>
         </Layout>
     )
 }
