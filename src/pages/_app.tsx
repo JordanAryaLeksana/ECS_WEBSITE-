@@ -19,8 +19,14 @@ export default function App({ Component, pageProps }: AppProps) {
   // Render the Coming Soon component if the mode is enabled and the path matches
   if (comingSoonMode) {
     return (
+<<<<<<< HEAD
       <main>
         <ComingSoon />
+=======
+
+      <main >
+        <ComingSoon />  
+>>>>>>> cc11262d012ea5fb44e07f1c5451e2ac75d4ecc1
       </main>
     );
   }

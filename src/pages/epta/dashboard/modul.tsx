@@ -5,9 +5,82 @@ import React from 'react'
 const Modul = () => {
   return (
     <DashboardLayout>
-      <div>
-       <Typography variant='Header' size='2xl' className='text-AddsOn-neutral' >Modul</Typography> 
+      <div className='flex flex-col gap-8 pt-14'>
+        
+        <div className='flex flex-col md:flex-row gap-8'>
+          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+            <a href=""> 
+              <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/PemrogramanModul.png')" }}>
+                <div>
+                  <Typography variant='Header' size='lg' className='text-AddsOn-neutral font-bold' >Dasar Pemrograman</Typography>
+                  <Typography variant='Header' size='xs' className='text-AddsOn-neutral' >2024</Typography>
+                </div>
+                <div>
+                  <Typography variant='Header' size='xs' className='text-AddsOn-neutral' >TEAM ECS</Typography>
+                </div>
+              </div>
+            </a> 
+            <div className='h-[110px]'>
+              
+            </div> 
+            <hr className='border-white border-1' />
+            <div className='h-[60px]'>
+              <div className='h-[100%] flex flex-row justify-end items-center gap-6 px-6 '>
+                <a href=""><img src="/Document.svg" alt="" /></a>
+                <a href=""><img src="/Download.svg" alt="" /></a>
+              </div>
+            </div>
+          </div>
+
+          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+            <a href="">
+              <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/MLModul.png')" }}>
+                <div>
+                  <Typography variant='Header' size='lg' className='text-AddsOn-neutral font-bold' >Machine Learning</Typography>
+                  <Typography variant='Header' size='xs' className='text-AddsOn-neutral' >2024</Typography>
+                </div>
+                <div>
+                  <Typography variant='Header' size='xs' className='text-AddsOn-neutral' >TEAM ECS</Typography>
+                </div>
+              </div>
+            </a>
+            <div className='h-[110px]'>
+              
+            </div>
+            <hr className='border-white border-1' />
+            <div className='h-[60px]'>
+              <div className='h-[100%] flex flex-row justify-end items-center gap-6 px-6 '>
+                <a href=""><img src="/Document.svg" alt="" /></a>
+                <a href=""><img src="/Download.svg" alt="" /></a>
+              </div>
+            </div>
+          </div>
+
+          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+            <a href="">  
+              <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/MicroModul.png')" }}>
+                <div>
+                  <Typography variant='Header' size='lg' className='text-AddsOn-neutral font-bold' >Microcontroller</Typography>
+                  <Typography variant='Header' size='xs' className='text-AddsOn-neutral' >2024</Typography>
+                </div>
+                <div>
+                  <Typography variant='Header' size='xs' className='text-AddsOn-neutral' >TEAM ECS</Typography>
+                </div>
+              </div>
+            </a>
+            <div className='h-[110px]'>
+              
+            </div>
+            <hr className='border-white border-1' />
+            <div className='h-[60px]'>
+              <div className='h-[100%] flex flex-row justify-end items-center gap-6 px-6'>
+                <a href=""><img src="/Document.svg" alt="" /></a>
+                <a href=""><img src="/Download.svg" alt="" /></a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </DashboardLayout>
   )
 }
