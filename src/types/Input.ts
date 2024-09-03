@@ -1,6 +1,6 @@
 
 import { FormikConfig, FormikValues } from "formik"
-
+import { InputHTMLAttributes } from "react";
 
 export interface FormGroupProps<T extends FormikValues>
     extends Omit<FormikConfig<T>, "children"> {
@@ -9,14 +9,14 @@ export interface FormGroupProps<T extends FormikValues>
     style?: React.CSSProperties;
 }
 
-export interface InputProps{
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>,  "prefix" | "suffix"> {
     placeholder: string;
     name: string;
     label: string;
     prefix?: React.ReactNode | null;
     suffix?: React.ReactNode | null;
     maxLength?: number;
-    type: string;
+    type?: string;
     disabled?: boolean;
     readonly?: boolean;
     helpertext?: React.ReactNode;
@@ -27,4 +27,6 @@ export interface InputProps{
     showPassword? : boolean
     tabIndex?: number;
 }
+
+
 

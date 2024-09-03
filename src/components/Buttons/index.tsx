@@ -7,7 +7,7 @@ const Button = ({
   className,
   onClick,
   style,
-  type,
+  type = 'button',
   isIcon = false,
   size = "medium",
   prefix,
@@ -28,11 +28,16 @@ const Button = ({
   return (
     <button
       className={clsxm([
-        "relative rounded-3xl  w-[137px] flex gap-2 items-center justify-center text-center ",
+        "relative rounded-3xl flex gap-2 items-center justify-center text-center ",
         [
           size === 'small' && ['min-h-[38px] py-1 px-[18px]'],
-          size === 'medium' && ['h-[42px] py-2 px-[22px]'],
+          size === 'medium' && ['min-h-[42px] py-2 px-[22px]'],
           size === 'large' && ['min-h-[50px] py-3 px-[26px]'],
+        ],
+        [
+          type === 'submit' && "submit",
+          type === 'button' && "div",
+          type === 'reset' && 'reset'
         ],
         [
           variant === "default" && [
@@ -48,6 +53,7 @@ const Button = ({
             isHovered && isHover && "text-AddsOn-gray",
           ],
         ],
+      
         className,
       ])}
       onClick={onClick}

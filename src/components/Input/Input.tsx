@@ -23,11 +23,7 @@ const Input = ({
     const errorsLogic = touched[name] && errors[name] && !disabled && !readonly;
     const successLogic = touched[name] && !errors[name] && !disabled && !readonly;
 
-    const handleClear = () => {
-        setFieldValue(name, "");
-        inputRef?.current?.focus();
-    };
-
+    
     return (
         <div className='mb-3 w-full '>
             <div className="w-full flex justify-between items-center gap-3 mb-2">
@@ -56,7 +52,7 @@ const Input = ({
                     maxLength={maxLength}
                     type={type}
                     ref={inputRef}
-                    className={`bg-transparent focus:outline-none focus:bg-transparent text-secondary-dark-dark placeholder:text-neutral-300 font-regular `}
+                    className={`bg-transparent w-full focus:outline-none focus:bg-transparent text-neutral-300 placeholder:text-secondary-dark-dark font-regular `}
                 />
                 {suffix && <div className='text-AddsOn-neutral'>{suffix}</div>}
             </div>

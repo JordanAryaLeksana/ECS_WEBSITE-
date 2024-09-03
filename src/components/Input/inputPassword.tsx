@@ -1,20 +1,9 @@
 import React from 'react';
 import Typography from '../Typography/Typography';
 import { Field, useFormikContext, ErrorMessage } from 'formik';
-
-interface InputProps {
-    placeholder: string;
-    name: string;
-    label: string;
-    prefix?: React.ReactNode | null;
-    suffix?: React.ReactNode | null;
-    maxLength?: number;
-    type: string;
-    disabled?: boolean;
-    readonly?: boolean;
-    helpertext?: React.ReactNode;
-}
-
+import { useState } from 'react';
+import { InputProps } from '@/types/Input';
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 const InputPassword = ({
     placeholder,
     name,
@@ -22,7 +11,7 @@ const InputPassword = ({
     prefix,
     suffix,
     maxLength,
-    type,
+   
     disabled,
     readonly,
     helpertext,
@@ -32,13 +21,11 @@ const InputPassword = ({
     const { setFieldValue, errors, touched, values } = useFormikContext<{
         [key: string]: any;
     }>();
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     const errorsLogic = touched[name] && errors[name] && !disabled && !readonly;
     const successLogic = touched[name] && !errors[name] && !disabled && !readonly;
 
-    const handleClear = () => {
-        setFieldValue(name, "");
-        inputRef?.current?.focus();
-    };
+   
 
     return (
         <div className='mb-3'>
@@ -62,17 +49,28 @@ const InputPassword = ({
                 `}
             >
                 {prefix && <div className="text-AddsOn-neutral">{prefix}</div>}
-
                 <Field
                     name={name}
+                    type={showPassword ? "text" : "password"}
                     placeholder={placeholder}
                     maxLength={maxLength}
-                    type={type}
                     ref={inputRef}
-                    className={`  bg-transparent focus:outline-none text-secondary-dark-dark placeholder:text-neutral-300 font-regular `}
+                    disabled={disabled || readonly}
+                    autoComplete="new-password"
+                    className={` bg-transparent w-full focus:outline-none  text-neutral-300 placeholder:text-secondary-dark-dark font-regular `}
                 />
-
                 {suffix && <div className='text-AddsOn-neutral'>{suffix}</div>}
+                {/* Input Show Password Icon */}
+                <div
+                    className={`text-AddsOn-neutral ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
+                    onClick={() => !disabled && setShowPassword(!showPassword)}
+                >
+                    {showPassword ? (
+                        <AiOutlineEye size={20} />
+                    ) : (
+                        <AiOutlineEyeInvisible size={20} />
+                    )}
+                </div>
             </div>
             <>
                 {errorsLogic ? (
