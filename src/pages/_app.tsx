@@ -5,7 +5,7 @@ import '../styles/globals.css';
 import ComingSoon from './comingsoon';
 
 export default function App({ Component, pageProps }: AppProps) {
-  
+
   // const pathname = usePathname();
 
   // // Array of paths that should display the Coming Soon page
@@ -19,19 +19,14 @@ export default function App({ Component, pageProps }: AppProps) {
   // Render the Coming Soon component if the mode is enabled and the path matches
   if (comingSoonMode) {
     return (
-<<<<<<< HEAD
       <main>
-        <ComingSoon />
-=======
 
-      <main >
-        <ComingSoon />  
->>>>>>> cc11262d012ea5fb44e07f1c5451e2ac75d4ecc1
+        <ComingSoon />
       </main>
     );
   }
 
-  // Render the regular component if not in Coming Soon mode or path doesn't match
+
   return (
     <main>
       <Component {...pageProps} />

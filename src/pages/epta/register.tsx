@@ -5,9 +5,23 @@ import Button from '@/components/Buttons'
 import InputPassword from '@/components/Input/inputPassword'
 import React, { useState } from 'react'
 import Card from './cardRegister'
-
+import * as Yup from 'yup'
+import Link from 'next/link'
 const Register = () => {
   const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
+
+  const validationSchema = Yup.object().shape({
+    NamaLengkap: Yup.string().required('Name is Required'),
+    NRP: Yup.string()
+      .required('Number is required')
+      .matches(/^[0-9]+$/, 'NRP must be a number'),
+    Password: Yup.string()
+      .required('Password is required')
+      .min(6, 'Password must be at least 6 characters'),
+    ConfirmPassword: Yup.string()
+      .required("Confirm password is required")
+      .oneOf([Yup.ref("Password")], "Confirm password does not match"),
+  })
 
   const courses = [
     {
@@ -36,15 +50,15 @@ const Register = () => {
   };
 
   return (
-    <div className='w-screen h-screen flex flex-col md:flex-row' style={{ backgroundImage: "url('/bgRegist.png')" }}>
+    <div className='w-full h-full flex flex-col md:flex-row' style={{ backgroundImage: "url('/bgRegist.png')" }}>
       <div className='w-full md:w-[20%]'></div>
-      <div className='w-full md:w-[80%] bg-[#1E1E1E]'>
+      <div className='w-full md:w-[80%] bg-primary-normal-normal'>
         <div className='py-10 px-4 md:py-20 md:px-16'>
-          <Typography variant="Header" size="3xl" className="text-primary font-bold text-white pb-2">
+          <Typography variant="Header" size="3xl" className="text-primary font-bold text-AddsOn-neutral pb-2">
             Registrasi EPTA 2024
           </Typography>
-          <Typography variant="Paragraph" size="base" className='text-[#83817A]'>
-            Sudah punya akun? <span className='text-white'><a href="">Login</a></span>
+          <Typography variant="Paragraph" size="base" className='text-secondary-dark-dark'>
+            Sudah punya akun? <span className='text-AddsOn-neutral'><Link href="">Login</Link></span>
           </Typography>
 
           <div className='flex flex-col pt-10 md:pt-20'>
@@ -55,9 +69,11 @@ const Register = () => {
                   NRP: '',
                   Email: '',
                   Password: '',
+                  ConfirmPassword:'',
                 }}
                 onSubmit={() => console.log('submit')}
                 className='flex flex-col gap-4 md:gap-6'
+                validationSchema={validationSchema}
               >
                 <div className='flex flex-col md:flex-row gap-4 md:gap-20'>
                   <div className='w-full md:w-[40%]'>
@@ -86,9 +102,22 @@ const Register = () => {
                       name='Password'
                       placeholder='Masukkan kata sandi lebih dari 8 kata'
                     />
+                    <InputPassword
+                      label='Konfirmasi Password'
+                      required
+                      name='ConfirmPassword'
+                      placeholder='Masukkan kata sandi lebih dari 8 kata'
+                    />
+                    <Button
+                      type='submit'
+                      variant='default'
+                      className='w-full md:w-36 mt-10'
+                    >
+                      Registrasi
+                    </Button>
                   </div>
                   <div className='w-full md:w-[40%]'>
-                    <Typography variant="Header" size="xs" className="text-primary font-bold text-white pb-2">
+                    <Typography variant="Header" size="xs" className="text-primary font-bold text-AddsOn-neutral pb-2">
                       Pilih course yang ingin ditempuh:
                     </Typography>
 
@@ -104,22 +133,8 @@ const Register = () => {
                         />
                       ))}
                     </div>
-
-                    <InputPassword
-                      label='Konfirmasi Password'
-                      required
-                      name='Password'
-                      placeholder='Masukkan kata sandi lebih dari 8 kata'
-                    />
                   </div>
                 </div>
-                <Button
-                  type='submit'
-                  variant='default'
-                  className='w-full md:w-36 mt-10'
-                >
-                  Registrasi
-                </Button>
               </FormGroup>
             </div>
           </div>

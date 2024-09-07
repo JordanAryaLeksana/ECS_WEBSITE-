@@ -1,19 +1,18 @@
-import FormGroup from '@/components/Input/FormGroup'
-import Input from '@/components/Input/Input'
+
+
 import Typography from '@/components/Typography/Typography'
 import Button from '@/components/Buttons'
-import InputPassword from '@/components/Input/inputPassword'
-import React, { useState } from 'react'
-import Card from './cardRegister'
+import React from 'react'
+import Image from 'next/image'
 
 const Register = () => {
   return (
     <div className='w-screen h-screen flex flex-col md:flex-row' style={{ backgroundImage: "url('/bgRegist.png')" }}>
       <div className='w-full md:w-[20%]'></div>
-      <div className='w-full md:w-[80%] bg-[#1E1E1E]'>
+      <div className='w-full md:w-[80%] bg-primary-normal-normal'>
         <div className='py-8 px-4 md:py-16 md:px-12'>
           <div className='flex flex-col md:flex-row items-center pb-6 md:pb-10'>
-            <div className='mr-4'><img src="/CheckIcon.png" alt="Check Icon" /></div>
+            <div className='mr-4'><Image src="/CheckIcon.png" alt="Check Icon" width={20} height={20} /></div>
             <Typography variant="Header" size="xl" className="text-primary font-bold text-white">
               Pembayaran Course
             </Typography>

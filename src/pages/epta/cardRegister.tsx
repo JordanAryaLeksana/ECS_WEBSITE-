@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 type CardProps = {
   title: string;
   price: string;
@@ -17,7 +17,7 @@ export default function Card({ title, price, icon, selected, onClick }: CardProp
       onClick={onClick}
     >
       <div className='flex flex-col justify-center items-center w-auto text-center'>
-        <img src={icon} alt={`${title} icon`} className="w-10 h-10 pb-2" />
+        <Image src={icon} alt={`${title} icon`} className="pb-2" width={40} height={40} />
         <div className="text-sm mb-2">{title}</div>
         <div className="text-sm">{price}</div>
       </div>
