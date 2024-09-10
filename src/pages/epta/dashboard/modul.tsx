@@ -6,9 +6,9 @@ import Image from 'next/image'
 const Modul = () => {
   return (
     <DashboardLayout>
-      <div className='flex w-full  flex-col gap-8 pt-14'>
+      <div className='w-full h-full lg:ml-[20px] mt-[40px] flex-col '>
         <div className='flex flex-col md:flex-row gap-8'>
-          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+          <div className='w-full  bg-[#1B1B1B] rounded-xl'>
             <Link href="/"> 
               <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/PemrogramanModul.png')" }}>
                 <div>
@@ -32,7 +32,7 @@ const Modul = () => {
             </div>
           </div>
 
-          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+          <div className='w-full  bg-[#1B1B1B] rounded-xl'>
             <a href="">
               <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/MLModul.png')" }}>
                 <div>
@@ -56,7 +56,7 @@ const Modul = () => {
             </div>
           </div>
 
-          <div className='w-full md:w-[300px] h-[300px] bg-[#1B1B1B] rounded-xl'>
+          <div className='w-full  bg-[#1B1B1B] rounded-xl'>
             <Link href="">  
               <div className='h-[130px] flex flex-col justify-between py-5 px-6 rounded-t-xl' style={{ backgroundImage: "url('/MicroModul.png')" }}>
                 <div>

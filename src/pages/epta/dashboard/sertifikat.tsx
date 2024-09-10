@@ -10,7 +10,7 @@ const Sertifikat = () => {
 
   return (
     <DashboardLayout>
-      <div className='flex flex-col sm:ml-[40px] sm:mt-[45px]'>
+      <div className='flex flex-col sm:ml-[20px] sm:mt-[45px]'>
         <Typography variant='Paragraph' size='lg' className='text-AddsOn-neutral font-normal mb-6 sm:text-2xl leading-[36px]'>
           Sertifikat
         </Typography>
