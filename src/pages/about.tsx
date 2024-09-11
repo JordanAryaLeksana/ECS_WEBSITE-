@@ -60,7 +60,7 @@ const About = () => {
     "Artificial Intelligence"
   );
 
-  const pathname = usePathname()
+  
   const data = [
     {
       Variant: "AssistantCard",
@@ -1262,7 +1262,7 @@ const About = () => {
               variant="Paragraph"
               className="  px-32 text-secondary-normal-normal hidden lg:block text-center"
             >
-              Discover our team - a dedicated, and passionate group of excellence with variety of interest. From seasoned experts to fresh innovators, work together to break boundaries. Let's get to know them!*
+              Discover our team - a dedicated, and passionate group of excellence with variety of interest. From seasoned experts to fresh innovators, work together to break boundaries. Lets get to know them!*
             </Typography>
           </div>
 
