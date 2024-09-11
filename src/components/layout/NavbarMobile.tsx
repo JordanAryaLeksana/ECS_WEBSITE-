@@ -13,7 +13,7 @@ const links = [
 const NavbarMobile = () => {
   const { pathname } = useRouter()
   return (
-    <div className='fixed bottom-0 w-screen flex h-[56px] bg-AddsOn-gray justify-center lg:hidden '>
+    <div className='fixed bottom-0 w-screen z-[999999] flex h-[56px] bg-AddsOn-gray justify-center lg:hidden '>
       <ul className='flex flex-row justify-center items-center gap-10 w-full sm:justify-evenly '>
         {links.map(({ href, imageSrc, imageAlt, imageWidth, imageHeight, label, icon }) => (
           <li key={href} className="flex items-center">

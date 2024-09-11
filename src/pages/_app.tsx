@@ -7,7 +7,7 @@ import ComingSoon from './comingsoon';
 export default function App({ Component, pageProps }: AppProps) {
 
  
-  const comingSoonMode = process.env.NEXT_PUBLIC_COMING_SOON === 'false'
+  const comingSoonMode = process.env.NEXT_PUBLIC_COMING_SOON === 'true'
  
   if (comingSoonMode) {
     return (

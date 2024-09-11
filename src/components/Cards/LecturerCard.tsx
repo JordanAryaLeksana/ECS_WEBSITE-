@@ -3,7 +3,7 @@ import Typography from "../Typography/Typography";
 import Image from "next/image";
 const LecturerCard = () => {
   return (
-    <div className="flex justify-center items-center mt-28 ">
+    <div className="hidden lg:flex justify-center items-center mt-28 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
         <div className="relative w-[251px] h-[334px]">
           <svg
@@ -749,8 +749,8 @@ const LecturerCard = () => {
               src="/sinta.svg"
               alt=""
               className="absolute top-[275px] left-[122.9px] transform -translate-x-1/2 -translate-y-1/2"
-              width={20}
-              height={20}
+            width={20}
+            height={20}
             />
           </a>
         </div>
