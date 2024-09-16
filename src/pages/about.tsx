@@ -353,8 +353,7 @@ const About = () => {
                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                 spaceBetween={50}
                 slidesPerView={1}
-                pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
+               
                 className=" scale-125 lg:scale-100"
                 breakpoints={{
 
@@ -383,6 +382,7 @@ const About = () => {
                         Width={50}
                         Height={50}
                         className=" "
+                      
                       />
                     </div>
                   </div>
@@ -417,6 +417,7 @@ const About = () => {
                         Width={50}
                         Height={50}
                         className=""
+                        
                       />
                     </div>
                   </div>
@@ -1266,7 +1267,7 @@ const About = () => {
             </Typography>
           </div>
 
-          <div className="px-56 mt-10">
+          <div className="w-full flex flex-row justify-center px-20 lg:px-52 mt-10">
 
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
@@ -1277,10 +1278,12 @@ const About = () => {
 
                 500: {
                   slidesPerView: 1,
+                  spaceBetween:1,
                 },
 
                 800: {
                   slidesPerView: 2,
+                  spaceBetween:1,
                 },
                 1024: {
                   slidesPerView: 3,
@@ -1343,7 +1346,7 @@ const About = () => {
             </Swiper>
 
           </div>
-          <div className="px-28 lg:px-48">
+          <div className=" px-10 pb-32 md:px-28 lg:px-48">
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
               spaceBetween={0}
@@ -1356,11 +1359,11 @@ const About = () => {
               }}
               breakpoints={{
 
-                500: {
+                700: {
                   slidesPerView: 1,
                 },
 
-                700: {
+                800: {
                   slidesPerView: 2,
                 },
                 1024: {

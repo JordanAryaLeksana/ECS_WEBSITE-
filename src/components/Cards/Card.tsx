@@ -17,6 +17,9 @@ const Card: React.FC<CardProps> = (props) => {
         }
     };
 
+    const onCLick = () => {
+        setIsClick(!isClick)
+    }
 
     const handleMouseLeave = () => {
         if (props.Variant === 'GlassHover') {
@@ -33,20 +36,26 @@ const Card: React.FC<CardProps> = (props) => {
     let content = null;
 
     if (props.Variant === 'GlassHover') {
-        const { ImageSrc, ImageAlt, Width, Height, Header, Paragraph } = props;
+        const { ImageSrc, ImageAlt, Width, Height, Header, Paragraph,  } = props;
         variantStyles = clsxm(
             "w-[258px] min-h-[138px] rounded-2xl items-start bg-AddsOn-gray border-[0.2px] border-opacity-10 border-AddsOn-white bg-opacity-10 transition-all text-AddsOn-white duration-300",
-            isHover && "min-h-[240px] transition-all duration-300",
+            isHover || isClick && "min-h-[240px] transition-all duration-300",
+        
             className,
         );
         content = (
-            <section className='flex flex-col items-start m-4 px-2'>
+            <section onClick={()=>setIsClick(!isClick)}  className='flex flex-col items-start m-4 px-2'>
                 <Image src={ImageSrc} alt={ImageAlt} width={Width} height={Height} />
                 <Typography size='xl' variant='Header' className='mt-4'>
                     {Header}
                 </Typography>
-
-                {isHover && (
+                {
+                    isClick && 
+                    <Typography size='xs' variant='Paragraph' className='mt-2 '>
+                    {Paragraph}
+                </Typography>
+                }
+                {isHover && isClick == false && (
                     <Typography size='xs' variant='Paragraph' className='mt-2 '>
                         {Paragraph}
                     </Typography>
@@ -109,7 +118,7 @@ const Card: React.FC<CardProps> = (props) => {
             className={clsxm(variantStyles, style)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
+            // onClick={handleClick}
         >
             {content}
         </div>

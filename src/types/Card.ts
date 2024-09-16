@@ -17,7 +17,7 @@ export interface GlassHoverCardProps extends BaseCardProps {
     ImageAlt: string;
     Width?: number;
     Height?: number;
-   
+    onCLick?: () => void;
 }
 
 export interface PaymentCardProps extends BaseCardProps {
