@@ -1,0 +1,22 @@
+{
+    "tugas":[
+        {
+            "id": 1,
+            "name": "Tugas 1",
+            "description": "Tugas 1 description",
+            "status": "closed"
+        },
+        {
+            "id": 2,
+            "name": "Tugas 2",
+            "description": "Tugas 2 description",
+            "status": "open"
+        },
+        {
+            "id": 3,
+            "name": "Tugas 3",
+            "description": "Tugas 3 description",
+            "status": "open"
+        }
+    ]
+}

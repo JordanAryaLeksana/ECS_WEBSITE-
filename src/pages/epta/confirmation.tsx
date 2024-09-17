@@ -1,10 +1,20 @@
 import Typography from '@/components/Typography/Typography'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import Button from '@/components/Buttons'
 import Link from 'next/link'
+import { useData } from '@/components/Provider/authProvider'
+import { useRouter } from 'next/router'
 
 const Confirmation = () => {
+  const {userData} = useData()
+  console.log(userData)
+  const router = useRouter()
+  const status = userData?.payment_status
+  useEffect(() => {
+    console.log(status)
+    status && router.push('/epta/dashboard/modul')
+  },[userData])
   return (
     <div className='min-h-screen flex items-center justify-center bg-primary-normal-normal overflow-hidden'>
       {/* Background Image */}
@@ -28,9 +38,9 @@ const Confirmation = () => {
           Setelah terkonfirmasi, anda dapat login untuk masuk ke{" "}
           <span className='font-bold'>halaman menu EPTA 2024</span>
         </Typography>
-        <Link href={`/`} className='mt-6'>
+        <Link href={`/epta/payment`} className='mt-6'>
           <Button size='medium' variant="default" className='flex items-center justify-center h-[42px] w-[268px] p-[9px]'>
-            <Typography variant="Paragraph" size="base" className='text-center text-nowrap'>Kembali ke halaman ECS</Typography>
+            <Typography variant="Paragraph" size="base" className='text-center text-nowrap'>Kembali ke menu pembayaran</Typography>
             <Image src={`/logout.svg`} alt='logout' width={24} height={24} className='ml-2'/>
           </Button>
         </Link>

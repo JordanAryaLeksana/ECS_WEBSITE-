@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import FormGroup from '@/components/Input/FormGroup'
 import * as Yup from 'yup'
@@ -7,7 +7,10 @@ import Typography from '@/components/Typography/Typography'
 import Link from 'next/link'
 import Button from '@/components/Buttons'
 import InputPassword from '@/components/Input/inputPassword'
-
+import { useRouter } from 'next/router'
+import axios from "axios"
+import Cookies from 'js-cookie'
+import { useData } from '@/components/Provider/authProvider'
 const Login = () => {
   const validationSchema = Yup.object().shape({
     NRP: Yup.string()
@@ -17,9 +20,36 @@ const Login = () => {
       .required('Password is required')
       .min(6, 'Password must be at least 6 characters'),
   })
+   const { userData } = useData()
+  const router = useRouter()
+ useEffect(() => {
+    if (userData != null && userData?.payment_status === true) {
+    
+        router.push('/epta/dashboard/modul')
+      }
+    else if(userData != null && userData?.payment_status === false){
+        router.push('/epta/confirmation')
+      }
+    
 
+  }, [userData])
+  const [NRP, setNRP] = React.useState('')
+  const [password, setPassword] = React.useState('')
   const HandleClick = () => {
-    window.location.href =('/epta/register')
+    axios.post('http://127.0.0.1:8000/api/auth/login/', {
+      username: NRP,
+      password: password,
+    }).then((response:any) => {
+      Cookies.set("data", JSON.stringify(response.data), { expires: 14 });
+      router.push('/epta/dashboard/modul')
+    })
+    .catch((error) => {
+      console.log(error)
+      alert('NRP atau Password anda salah')
+    })
+    
+
+
   }
   return (
     <section className='bg-primary-normal-normal h-screen w-screen flex justify-center items-center'>
@@ -30,13 +60,13 @@ const Login = () => {
             <Typography size='4xl' variant='Header' className='font-bold text-AddsOn-neutral'>
               Login Epta 2024
             </Typography>
-            <div className='flex items-center gap-0'> 
+            <div className='flex items-center gap-2'> 
               <Typography size='base' variant='Paragraph' className='text-secondary-dark-dark'>
                 Belum Punya Akun?
               </Typography>
-              <Button variant='text' size='small' className='w-14' onClick={HandleClick} >
+              <Link href='/epta/register' className='text-AddsOn-neutral'>
                 Daftar
-              </Button>
+              </Link>
             </div>
           </div>
           <FormGroup
@@ -44,7 +74,7 @@ const Login = () => {
               NRP: '',
               Password: '',
             }}
-            onSubmit={() => console.log('submit')}
+            onSubmit={HandleClick}
             validationSchema={validationSchema}
             className='flex flex-col gap-6'
           >
@@ -54,12 +84,14 @@ const Login = () => {
               name='NRP'
               placeholder='Input Your NRP'
               maxLength={10}
+              onChange={(e) => setNRP(e.target.value)}
             />
             <InputPassword
               label='Password'
               required
               name='Password'
               placeholder='Input Your Password'
+              onChange={(e) => setPassword(e.target.value)}
             />
             {/* Center the button using mx-auto */}
             <Button

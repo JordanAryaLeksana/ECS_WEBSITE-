@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, createContext } from 'react';
 import Sidebar from './Sidebar/sidebar';
 import Image from 'next/image';
 import { HiOutlineMenu } from 'react-icons/hi';
 import SidebarMobile from './Sidebar/sidebarMobile';
+import DashboardProvider, { useData } from '@/components/Provider/authProvider';
+import { useRouter } from 'next/router';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -11,11 +13,23 @@ interface DashboardLayoutProps {
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const [isNavbar, setIsNavbarClick] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
+ const router =useRouter()
+ const { userData } = useData();
+//  if(!userData){
+//   router.push('/epta/login')
+//  }
+if(userData == null){
+  router.push('/epta/login')
+}
+if(userData?.user?.payment_status === false){
+  router.push('/epta/confirmation')
+}
+
 
   const handleClick = () => {
     setIsNavbarClick(!isNavbar);
   };
-
+  
   // Handle click outside of sidebar
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -36,7 +50,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   }, [isNavbar]);
 
   return (
-    <section className='min-h-screen flex flex-col lg:flex-row bg-primary-normal-normal '>
+     
+     <section className='min-h-screen flex flex-col lg:flex-row bg-primary-normal-normal '>
       <div
         className='flex flex-row items-center justify-between p-6 w-screen absolute lg:hidden bg-AddsOn-gray'
         onClick={handleClick}
@@ -56,7 +71,13 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         {children}
       </main>
     </section>
+     
+    
+  
   );
 };
 
 export default DashboardLayout;
+
+
+

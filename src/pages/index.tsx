@@ -7,6 +7,7 @@ import Link from "next/link";
 import Typography from "@/components/Typography/Typography";
 import Button from "@/components/Buttons";
 import { HiExternalLink, HiX } from "react-icons/hi";
+import { useRouter } from "next/router";
 
 const Home = () => {
     const bidmin = ["Internet of Things", "Artificial intelligence", "Embedded System"];
@@ -39,9 +40,9 @@ const Home = () => {
         // Clean up event listener on component unmount
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
+    const router = useRouter();
     const HandleClick = () => {
-        window.location.href = "/epta/register";
+        router.push("/epta/register");
     };
 
     useEffect(() => {
@@ -129,12 +130,12 @@ const Home = () => {
             )}
             {/* Rest of your content */}
             <div className="h-screen w-screen flex flex-col bg-primary-normal-normal justify-center items-center text-secondary-normal-normal font-Poppins">
-                <Typography size="7xl" variant="Header" className=" font-bold mb-6">
+                <Typography size="7xl" variant="Header" className=" font-bold mb-6 sm:text-[64px] text-[40px] ">
                     ECS LABORATORY
                 </Typography>
-                <Typography size="base" variant="Paragraph" className="font-base">
+                <Typography size="base" variant="Paragraph" className="font-base sm:text-md text-sm sm:flex-row justify-center items-center flex flex-col gap-5 sm:gap-3">
                     The world where we explore{" "}
-                    <span className="ml-3 border-[1.5px] p-2 px-4 rounded-3xl border-secondary-normal-normal">
+                    <span className="border-[1.5px] p-2 px-4 rounded-3xl border-secondary-normal-normal">
                         <motion.span
                             key={bid}
                             initial={{ opacity: 0, x: -10 }}
@@ -161,7 +162,7 @@ const Home = () => {
                     </Link>
                 </div>
                 {!popup && (
-                    <motion.div className="absolute right-20 bottom-24 flex flex-row-reverse gap-10 w-full h-fit text-white">
+                    <motion.div className="absolute sm:right-20 sm:bottom-24 right-6 bottom-24 flex flex-row-reverse gap-10 w-full h-fit text-white">
                         <motion.button
                             whileHover={{ scale: 1.2 }}
                             animate={{ y: [0, -50, 0] }}
@@ -180,16 +181,18 @@ const Home = () => {
                             <Typography variant="Header" size="xs" className="font-bold">
                                 REGISTER NOW!!!
                             </Typography>
-                            <Image src="/Frame 279.png" width={143} height={45} alt="gambar" />
+                            <Image src="/Frame 279.png" width={100} height={30} className="sm:w-[143px] sm:h-[45px]" alt="gambar" />
+                            <div className="opacity-0 sm:opacity-100">
                             {flipped ? (
-                                <Typography size="6xl" variant="Header" className="text-left font-bold">
+                                <Typography size="6xl" variant="Header" className="text-left font-bold text-sm">
                                     GASS
                                 </Typography>
                             ) : (
-                                <Typography variant="Header" size="6xl" className="text-left font-bold">
+                                <Typography variant="Header" size="6xl" className="text-left font-bold text-sm">
                                     2024
                                 </Typography>
                             )}
+                            </div>
                         </motion.button>
                     </motion.div>
                 )}

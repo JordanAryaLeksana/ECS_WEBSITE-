@@ -11,7 +11,7 @@ const InputPassword = ({
     prefix,
     suffix,
     maxLength,
-   
+    onChange,
     disabled,
     readonly,
     helpertext,
@@ -56,6 +56,10 @@ const InputPassword = ({
                     maxLength={maxLength}
                     ref={inputRef}
                     disabled={disabled || readonly}
+                    onChange={(e:any) => {
+                        setFieldValue(name, e.target.value)
+                        onChange && onChange(e)
+                    }}
                     autoComplete="new-password"
                     className={` bg-transparent w-full focus:outline-none  text-neutral-300 placeholder:text-secondary-dark-dark font-regular `}
                 />

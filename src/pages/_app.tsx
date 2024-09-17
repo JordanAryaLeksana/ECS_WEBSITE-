@@ -4,6 +4,7 @@ import '../styles/globals.css'
 
 
 import ComingSoon from "./comingsoon"
+import DashboardProvider from '@/components/Provider/authProvider';
 
 
 
@@ -11,7 +12,7 @@ import ComingSoon from "./comingsoon"
 export default function App({ Component, pageProps }: AppProps) {
 
  
-  const comingSoonMode = process.env.NEXT_PUBLIC_COMING_SOON === 'true'
+  const comingSoonMode = process.env.NEXT_PUBLIC_COMING_SOON === 'false'
  
 
   if (comingSoonMode) {
@@ -26,7 +27,10 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
 
       <main >
-        <Component {...pageProps} />
+      <DashboardProvider>
+      <Component {...pageProps} />
+      </DashboardProvider>
+        
       </main>
     )
 }

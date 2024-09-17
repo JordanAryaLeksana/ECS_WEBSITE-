@@ -14,6 +14,7 @@ const Input = ({
     disabled,
     readonly,
     helpertext,
+    onChange
 }: InputProps):React.ReactElement => {
 
     const inputRef = React.useRef<HTMLInputElement>(null);
@@ -51,6 +52,13 @@ const Input = ({
                     placeholder={placeholder}
                     maxLength={maxLength}
                     type={type}
+                    disabled={disabled}
+                    onChange={(e:any) => {
+                        setFieldValue(name, e.target.value);
+                        if (onChange) {
+                            onChange(e);
+                        }
+                    }}
                     ref={inputRef}
                     className={`bg-transparent w-full focus:outline-none focus:bg-transparent text-neutral-300 placeholder:text-secondary-dark-dark font-regular `}
                 />
