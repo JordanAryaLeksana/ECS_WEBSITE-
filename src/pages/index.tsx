@@ -77,16 +77,18 @@ const Home = () => {
             />
 
             {popup && (
-                <div className="absolute justify-center items-center bg-inherit lg:bg-primary-dark-dark rounded-xl lg:top-1/2 flex my-4 lg:m-auto w-full lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:w-[1000px]  lg:h-[calc(100vh-68px)] z-[99999]">
-                    <div className="relative w-full h-full flex justify-center items-center">
+                <div className="absolute justify-center items-center bg-inherit lg:bg-primary-dark-dark rounded-xl lg:top-1/2 flex my-4 lg:m-auto w-full lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:w-[1000px]  lg:h-[450px] z-[99999]">
+                    <div className="relative w-full h-full justify-center items-center flex sm:block md:flex lg:block">
                         <Image
                             src={`/Vector.png`}
                             alt="vector"
-                            fill
+                            width={100}
+                            height={800}
+                            layout="responsive"
                             className="absolute top-3 lg:block hidden"
                         />
                         <div
-                            className="relative w-full lg:max-w-none max-w-[400px] h-full bg-accent-warning-600 rounded-xl p-8 flex justify-start text-white"
+                            className="relative w-full lg:max-w-none max-w-[400px] h-[512px] bg-accent-warning-600 rounded-xl p-8 flex justify-start text-white"
                             style={{
                                 clipPath: clipPath,
                             }}
