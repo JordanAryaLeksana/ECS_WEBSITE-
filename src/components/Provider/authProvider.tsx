@@ -17,7 +17,7 @@ const AuthProvider = (props: any) => {
   const cookieData = Cookies.get('data');
   const data = JSON.parse(cookieData || '{}');
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/auth/user/${data?.user?.id}/`,)
+    axios.get(`https://dzulf.pythonanywhere.com/api/auth/user/${data?.user?.id}/`,)
     .then((response) => {
       setUserData(response.data);
       console.log(response.data)

@@ -32,7 +32,7 @@ const Pengaturan = () => {
 
     try {
       await axios.patch(
-        `http://127.0.0.1:8000/api/auth/profile/${userData?.id}/`,
+        `https://dzulf.pythonanywhere.com/api/auth/profile/${userData?.id}/`,
         { name: namaLengkap, email: email }
       );
       

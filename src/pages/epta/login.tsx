@@ -36,7 +36,7 @@ const Login = () => {
   const [NRP, setNRP] = React.useState('')
   const [password, setPassword] = React.useState('')
   const HandleClick = () => {
-    axios.post('http://127.0.0.1:8000/api/auth/login/', {
+    axios.post('https://dzulf.pythonanywhere.com/api/auth/login/', {
       username: NRP,
       password: password,
     }).then((response:any) => {

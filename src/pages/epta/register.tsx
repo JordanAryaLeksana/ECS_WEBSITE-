@@ -81,7 +81,7 @@ const Register = () => {
       password: password,
       modul: selectedCourses
     }
-    axios.post("http://127.0.0.1:8000/api/auth/register/", dataUser)
+    axios.post("https://dzulf.pythonanywhere.com/api/auth/register/", dataUser)
       .then((response) => {
         console.log(response.data);
         Cookies.set("data", JSON.stringify(response.data), { expires: 14 });
