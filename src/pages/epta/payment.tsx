@@ -12,7 +12,7 @@ const Register = () => {
   const { userData } = useData()
   console.log(userData)
   const router = useRouter()
-  const modul = userData.modul.replace(/'/g, '"') || ""
+  const modul = userData?.modul?.replace(/'/g, '"') || ""
   const modulList = JSON.parse(modul || '[]');
   useEffect(() => {
     if (userData && userData?.payment_status === true) {
