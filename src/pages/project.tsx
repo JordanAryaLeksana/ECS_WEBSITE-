@@ -13,7 +13,7 @@ const Project = () => {
                 className="fixed inset-0 block"
             />
             <div className='h-screen w-screen bg-primary-normal-normal'>
-                
+                       
             </div>
         </Layout>
     )

@@ -4,7 +4,7 @@ import Image from "next/image";
 const LecturerCard = () => {
   return (
     <div className="hidden lg:flex justify-center items-center mt-28 ">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         <div className="relative w-[251px] h-[334px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"

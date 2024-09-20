@@ -347,8 +347,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="mt-14 lg:mt-0 flex px-16 lg:px-72 w-full">
-
+            <div className="mt-14 lg:mt-0 flex  lg:px-72 w-full">
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                 spaceBetween={50}
@@ -443,15 +442,13 @@ const About = () => {
           <LecturerCard />
           <div className=" lg:hidden mt-[200px] ">
             <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay]}
+              autoplay
               spaceBetween={50}
               slidesPerView={1}
-
-              pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}
               direction="horizontal"
               className="scale-[1.2] md:scale-[1.8]"
-
             >
 
 
