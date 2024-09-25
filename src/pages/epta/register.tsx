@@ -49,7 +49,7 @@ const Register = () => {
   const validationSchema = Yup.object().shape({
     NamaLengkap: Yup.string().required('Nama Lengkap wajib diisi'),
     Email: Yup.string().email('Format email salah').required('Email wajib diisi'),
-    NRP: Yup.string().length(10, 'NRP harus 10 karakter').required('NRP wajib diisi'),
+    NRP: Yup.string().length(10, 'NRP harus 10 karakter').required('NRP wajib diisi').matches(/^[0-9]+$/, 'NRP must be a number'),
     Password: Yup.string().required('Password wajib diisi').min(8, 'Password harus lebih dari 8 karakter'),
     ConfirmPassword: Yup.string()
       .required("Konfirmasi password wajib diisi")
