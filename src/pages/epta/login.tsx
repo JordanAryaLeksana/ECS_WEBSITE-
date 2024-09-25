@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import FormGroup from '@/components/Input/FormGroup'
 import * as Yup from 'yup'
@@ -20,34 +20,39 @@ const Login = () => {
       .required('Password is required')
       .min(6, 'Password must be at least 6 characters'),
   })
-   const { userData } = useData()
+  const { userData } = useData()
   const router = useRouter()
- useEffect(() => {
+  useEffect(() => {
     if (userData != null && userData?.payment_status === true) {
-    
-        router.push('/epta/dashboard/modul')
-      }
-    else if(userData != null && userData?.payment_status === false){
-        router.push('/epta/confirmation')
-      }
-    
+
+      router.push('/epta/dashboard/modul')
+    }
+    else if (userData != null && userData?.payment_status === false) {
+      router.push('/epta/confirmation')
+    }
+
 
   }, [userData])
+  const [loading, setLoading] = useState(false);
   const [NRP, setNRP] = React.useState('')
   const [password, setPassword] = React.useState('')
+
   const HandleClick = () => {
+    setLoading(true)
     axios.post('https://dzulf.pythonanywhere.com/api/auth/login/', {
       username: NRP,
       password: password,
-    }).then((response:any) => {
+    }).then((response: any) => {
+      setLoading(false)
       Cookies.set("data", JSON.stringify(response.data), { expires: 14 });
       router.push('/epta/dashboard/modul')
     })
-    .catch((error) => {
-      console.log(error)
-      alert('NRP atau Password anda salah')
-    })
-    
+      .catch((error) => {
+        setLoading(false)
+        console.log(error)
+        alert('NRP atau Password anda salah')
+      })
+
 
 
   }
@@ -60,7 +65,7 @@ const Login = () => {
             <Typography size='4xl' variant='Header' className='font-bold text-AddsOn-neutral'>
               Login Epta 2024
             </Typography>
-            <div className='flex items-center gap-2'> 
+            <div className='flex items-center gap-2'>
               <Typography size='base' variant='Paragraph' className='text-secondary-dark-dark'>
                 Belum Punya Akun?
               </Typography>
@@ -99,7 +104,9 @@ const Login = () => {
               variant='default'
               className='w-40 mx-auto mt-10'
             >
-              Login
+              {
+                loading ? "Loading..." : "Login"
+              }
             </Button>
           </FormGroup>
         </div>
