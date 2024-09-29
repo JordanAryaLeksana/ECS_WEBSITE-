@@ -205,7 +205,7 @@ const Register = () => {
             <Button
                     type='submit'
                     variant='default'
-                    className='order-2 w-full md:w-36 sm:mt-10 mt-0'
+                    className='order-2 w-full md:w-36 sm:mt-10 mt-5'
                   >
                     {
                       loading ? "Loading..." : "Registrasi"
