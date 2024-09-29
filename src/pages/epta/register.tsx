@@ -173,6 +173,13 @@ const Register = () => {
                     placeholder='Masukkan kata sandi lebih dari 8 karakter'
                     onChange={(e) => setPassword(e.target.value)}
                   />
+                  <InputPassword
+                    label='Konfirmasi Password'
+                    required
+                    name='ConfirmPassword'
+                    placeholder='Masukkan kata sandi lebih dari 8 karakter'
+                    onChange={(e) => setPasswordConfirm(e.target.value)}
+                  />
                 </div>
                 <div className='w-full md:w-[40%]'>
                   <Typography variant="Header" size="xs" className="text-primary font-bold text-white pb-2">
@@ -190,13 +197,7 @@ const Register = () => {
                       />
                     ))}
                   </div>
-                  <InputPassword
-                    label='Konfirmasi Password'
-                    required
-                    name='ConfirmPassword'
-                    placeholder='Masukkan kata sandi lebih dari 8 karakter'
-                    onChange={(e) => setPasswordConfirm(e.target.value)}
-                  />
+                  
                 </div>
               </div>
               <Button
