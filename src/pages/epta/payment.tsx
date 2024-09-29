@@ -85,7 +85,7 @@ const Register = () => {
     )
   }
   return (
-    <div className='w-screen h-screen flex flex-col md:flex-row' style={{ backgroundImage: "url('/bgRegist.png')" }}>
+    <div className='w-full h-full min-h-screen flex flex-col md:flex-row overflow-hidden' style={{ backgroundImage: "url('/bgRegist.png')" }}>
       <div className='w-full md:w-[20%]'></div>
       <div className='w-full md:w-[80%] bg-[#1E1E1E]'>
         <div className='py-8 px-4 md:py-16 md:px-12'>
