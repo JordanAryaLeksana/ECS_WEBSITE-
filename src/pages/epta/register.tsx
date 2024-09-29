@@ -109,13 +109,11 @@ const Register = () => {
     axios.post("https://dzulf.pythonanywhere.com/api/auth/register/", dataUser)
       .then((response) => {
         setLoading(false);
-        console.log(response.data);
         Cookies.set("data", JSON.stringify(response.data), { expires: 14 });
         router.push('/epta/payment');
       })
       .catch((error) => {
         setLoading(false);
-        console.error(error);
         alert(error.response.data.error);
       });
   };

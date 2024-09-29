@@ -42,7 +42,6 @@ const Pengaturan = () => {
       },1000)
     } catch (error) {
       setError('Failed to update profile');
-      console.error('Error updating profile:', error);
     } 
   };
 

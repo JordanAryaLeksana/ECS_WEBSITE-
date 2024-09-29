@@ -8,11 +8,9 @@ import { useRouter } from 'next/router'
 
 const Confirmation = () => {
   const {userData} = useData()
-  console.log(userData)
   const router = useRouter()
   const status = userData?.payment_status
   useEffect(() => {
-    console.log(status)
     status && router.push('/epta/dashboard/modul')
   },[userData])
   return (

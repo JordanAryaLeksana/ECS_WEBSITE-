@@ -20,10 +20,8 @@ const AuthProvider = (props: any) => {
     axios.get(`https://dzulf.pythonanywhere.com/api/auth/user/${data?.user?.id}/`,)
     .then((response) => {
       setUserData(response.data);
-      console.log(response.data)
     })
     .catch((error) => {
-      console.log(error)
       setUserData(null)
 
       

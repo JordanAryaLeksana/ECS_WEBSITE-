@@ -49,7 +49,6 @@ const Login = () => {
     })
       .catch((error) => {
         setLoading(false)
-        console.log(error)
         alert('NRP atau Password anda salah')
       })
 
