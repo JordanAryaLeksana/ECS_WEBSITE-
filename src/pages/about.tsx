@@ -332,7 +332,7 @@ const About = () => {
                   height={250}
                 />
               </div>
-              <div className="w-full  lg:max-w-[420px] h-[250px] py-8 px-6  rounded-2xl bg-AddsOn-gray border-[0.2px] border-opacity-10 border-AddsOn-white bg-opacity-10 transition-all text-AddsOn-white duration-300">
+              <div className="w-full  lg:max-w-[420px] sm:h-[250px] h-full py-8 px-6  rounded-2xl bg-AddsOn-gray border-[0.2px] border-opacity-10 border-AddsOn-white bg-opacity-10 transition-all text-AddsOn-white duration-300">
                 <Typography size="xl" variant="Header" className="mb-3">
                   About Us
                 </Typography>
