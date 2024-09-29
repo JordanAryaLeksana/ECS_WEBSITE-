@@ -11,7 +11,7 @@ type CardProps = {
 export default function Card({ title, price, icon, selected, onClick }: CardProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-center p-6 mb-6 w-36 h-36 rounded-lg shadow-lg cursor-pointer ${
+      className={`flex flex-col items-center justify-center p-6  w-36 h-36 rounded-lg shadow-lg cursor-pointer ${
         selected ? 'border-2 border-white text-white' : 'border-2 border-[#83817A] text-[#83817A]'
       }`}
       onClick={onClick}

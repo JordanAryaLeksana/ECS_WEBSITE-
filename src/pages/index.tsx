@@ -157,7 +157,7 @@ const Home = () => {
                     <Link href="">
                         <BiLogoGmail className="w-[24px] h-[24px]"></BiLogoGmail>
                     </Link>
-                    <Link href="">
+                    <Link href="https://wa.me/6281252219023">
                         <BiLogoWhatsapp className="w-[24px] h-[24px]"></BiLogoWhatsapp>
                     </Link>
                 </div>
