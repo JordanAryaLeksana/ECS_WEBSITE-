@@ -119,7 +119,7 @@ const Register = () => {
   };
 
   return (
-    <div className='w-screen h-screen flex flex-col md:flex-row' style={{ backgroundImage: "url('/bgRegist.png')" }}>
+    <div className='w-full min-h-screen flex flex-col md:flex-row' style={{ backgroundImage: "url('/bgRegist.png')" }}>
       <div className='w-full md:w-[20%]'></div>
       <div className='w-full md:w-[80%] bg-[#1E1E1E]'>
         <div className='py-10 px-4 md:py-20 md:px-16'>
@@ -176,7 +176,7 @@ const Register = () => {
                 </div>
                 <div className='w-full md:w-[40%]'>
                   <Typography variant="Header" size="xs" className="text-primary font-bold text-white pb-2">
-                    Pilih course yang ingin ditempuh:
+                    Pilih course yang ingin ditempuh (boleh pilih lebih dari satu):
                   </Typography>
                   <div className="flex flex-wrap gap-4">
                     {courses.map((course) => (

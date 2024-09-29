@@ -77,18 +77,16 @@ const Home = () => {
             />
 
             {popup && (
-                <div className="absolute justify-center items-center bg-inherit lg:bg-primary-dark-dark rounded-xl lg:top-1/2 flex my-4 lg:m-auto w-full lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:w-[1000px]  lg:h-[450px] z-[99999]">
-                    <div className="relative w-full h-full justify-center items-center flex sm:block md:flex lg:block">
+                <div className="absolute justify-center items-center bg-inherit lg:bg-primary-dark-dark rounded-xl lg:top-1/2 flex my-4 lg:m-auto w-full lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:w-[1000px] min-w-max  lg:h-[500px] z-[99999]">
+                    <div className="relative w-full h-full flex justify-center items-center">
                         <Image
                             src={`/Vector.png`}
                             alt="vector"
-                            width={100}
-                            height={800}
-                            layout="responsive"
+                            fill
                             className="absolute top-3 lg:block hidden"
                         />
                         <div
-                            className="relative w-full lg:max-w-none max-w-[400px] h-[512px] bg-accent-warning-600 rounded-xl p-8 flex justify-start text-white"
+                            className="relative w-full lg:max-w-none max-w-[400px] h-full bg-accent-warning-600 rounded-xl p-8 flex justify-start text-white"
                             style={{
                                 clipPath: clipPath,
                             }}
@@ -150,10 +148,10 @@ const Home = () => {
                     </span>
                 </Typography>
                 <div className="absolute left-0 bottom-24 flex flex-row gap-10 w-full h-fit items-center justify-center text-secondary-normal-normal z-[2]">
-                    <Link href="">
+                    <Link href="https://www.linkedin.com/company/ecslaboratory/">
                         <BiLogoLinkedin className="w-[24px] h-[24px]"></BiLogoLinkedin>
                     </Link>
-                    <Link href="https://www.instagram.com/ecs_epits?igsh=MWRvdm13YWNiNmg3bg==">
+                    <Link href="https://www.instagram.com/ecs_epits">
                         <BiLogoInstagram className="w-[24px] h-[24px]"></BiLogoInstagram>
                     </Link>
                     <Link href="">
