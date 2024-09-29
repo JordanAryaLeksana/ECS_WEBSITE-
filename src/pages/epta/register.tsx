@@ -180,13 +180,21 @@ const Register = () => {
                     placeholder='Masukkan kata sandi lebih dari 8 karakter'
                     onChange={(e) => setPasswordConfirm(e.target.value)}
                   />
-                  
+                  <Button
+                    type='submit'
+                    variant='default'
+                    className='w-full hidden md:flex md:w-36 mt-10 order-2'
+                  >
+                    {
+                      loading ? "Loading..." : "Registrasi"
+                    }
+                  </Button >
                 </div>
-                <div className='w-full md:w-[40%] '>
+                <div className='w-full md:w-[40%] order-1'>
                   <Typography variant="Header" size="xs" className="text-primary font-bold text-white pb-2">
                     Pilih course yang ingin ditempuh (boleh pilih lebih dari satu):
                   </Typography>
-                  <div className="flex flex-wrap gap-5">
+                  <div className="flex flex-wrap gap-4">
                     {courses.map((course) => (
                       <Card
                         key={course.title}
@@ -202,16 +210,15 @@ const Register = () => {
                 </div>
               </div>
               <Button
-                    type='submit'
-                    variant='default'
-                    className='order-2 w-full md:w-36 sm:mt-10 mt-5'
-                  >
-                    {
-                      loading ? "Loading..." : "Registrasi"
-                    }
-                  </Button >
+                type='submit'
+                variant='default'
+                className='w-full flex md:hidden md:w-36 mt-10 order-2'
+              >
+                {
+                  loading ? "Loading..." : "Registrasi"
+                }
+              </Button >
             </FormGroup>
-            
           </div>
         </div>
       </div>
