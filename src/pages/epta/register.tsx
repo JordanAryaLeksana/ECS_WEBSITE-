@@ -201,8 +201,7 @@ const Register = () => {
 
                 </div>
               </div>
-            </FormGroup>
-            <Button
+              <Button
                     type='submit'
                     variant='default'
                     className='order-2 w-full md:w-36 sm:mt-10 mt-5'
@@ -211,6 +210,8 @@ const Register = () => {
                       loading ? "Loading..." : "Registrasi"
                     }
                   </Button >
+            </FormGroup>
+            
           </div>
         </div>
       </div>
