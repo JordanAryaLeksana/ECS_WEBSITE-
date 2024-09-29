@@ -218,10 +218,16 @@ const Register = () => {
                   loading ? "Loading..." : "Registrasi"
                 }
               </Button >
+               <div className='text-AddsOn-neutral mt-5'>
+        <h1 className='font-bold'>Further Question? Contact Us:</h1>
+        <h1>Willy <span className='text-accent-warning-700'><Link href="https://wa.me/6287761837996">6287761837996</Link></span>
+</h1>
+<h1>Jordan <span className='text-accent-warning-700'><Link href="https://wa.me/628111865557">628111865557</Link></span></h1></div>
             </FormGroup>
           </div>
         </div>
       </div>
+     
     </div>
   );
 };
