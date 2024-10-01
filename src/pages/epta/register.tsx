@@ -75,15 +75,18 @@ const Register = () => {
     // Basic validation before sending the request
     if (namaLengkap === '' || email === '' || password === '' || passwordConfirm === '') {
       alert('Data tidak boleh kosong!');
+      setLoading(false);
       return;
     }
     if (!email.includes('@') || !email.includes('.')) {
       alert('Format email salah!');
+      setLoading(false);
       return;
     }
 
     if (NRP.length !== 10) {
       alert('NRP harus 10 karakter!');
+      setLoading(false);
       return;
     }
 
@@ -94,6 +97,7 @@ const Register = () => {
 
     if (selectedCourses.length === 0) {
       alert('Pilih minimal 1 modul!');
+      setLoading(false);
       return;
     }
 

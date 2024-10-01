@@ -15,15 +15,14 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
  const router =useRouter()
  const { userData } = useData();
-//  if(!userData){
-//   router.push('/epta/login')
-//  }
+
+if(userData?.payment_status === false){
+  router.push('/epta/confirmation')
+}
 if(userData == null){
   router.push('/epta/login')
 }
-if(userData?.user?.payment_status === false){
-  router.push('/epta/confirmation')
-}
+
 
 
   const handleClick = () => {
