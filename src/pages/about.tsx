@@ -746,7 +746,7 @@ const About = () => {
                     >
                       Dr. Ir. Syamsul Arifin, M.T.
                     </Typography>
-                    <a href="https://sinta.kemdikbud.go.id/authors/profile/6034761">
+                    <a href="http://sinta3.kemdikbud.go.id/authors/profile/6042960">
                       <Image
                         src="/sinta.svg"
                         alt=""
