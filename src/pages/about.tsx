@@ -593,7 +593,7 @@ const About = () => {
                     >
                       Dr. Bambang L. Widjiantoro, S.T., M.T.
                     </Typography>
-                    <a href="https://sinta.kemdikbud.go.id/authors/profile/6035511">
+                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/6035511">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -746,7 +746,7 @@ const About = () => {
                     >
                       Dr. Ir. Syamsul Arifin, M.T.
                     </Typography>
-                    <a href="http://sinta3.kemdikbud.go.id/authors/profile/6042960">
+                    <a target="_blank" href="http://sinta3.kemdikbud.go.id/authors/profile/6042960">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -899,7 +899,7 @@ const About = () => {
                     >
                       Prof. Dr. Katherin Indriawati, S.T, M.T.
                     </Typography>
-                    <a href="https://sinta.kemdikbud.go.id/authors/profile/5979423">
+                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/5979423">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -1053,7 +1053,7 @@ const About = () => {
                     >
                       Dr. Suyanto, S.T, M.T.
                     </Typography>
-                    <a href="https://sinta.kemdikbud.go.id/authors/profile/6658698">
+                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/6658698">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -1206,7 +1206,7 @@ const About = () => {
                     >
                       Andi Rahmadiansah, S.T, M.T.
                     </Typography>
-                    <a href="https://sinta.kemdikbud.go.id/authors/profile/29804">
+                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/29804">
                       <Image
                         src="/sinta.svg"
                         alt=""
