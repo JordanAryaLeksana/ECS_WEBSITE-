@@ -15,6 +15,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 interface ArrowProps {
   className?: string;
@@ -593,7 +594,7 @@ const About = () => {
                     >
                       Dr. Bambang L. Widjiantoro, S.T., M.T.
                     </Typography>
-                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/6035511">
+                    <Link target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/6035511">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -601,7 +602,7 @@ const About = () => {
                         height={20}
                         width={20}
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>
@@ -746,7 +747,7 @@ const About = () => {
                     >
                       Dr. Ir. Syamsul Arifin, M.T.
                     </Typography>
-                    <a target="_blank" href="http://sinta3.kemdikbud.go.id/authors/profile/6042960">
+                    <Link target="_blank" href="http://sinta3.kemdikbud.go.id/authors/profile/6042960">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -754,7 +755,7 @@ const About = () => {
                         width={20}
                         height={20}
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>
@@ -899,7 +900,7 @@ const About = () => {
                     >
                       Prof. Dr. Katherin Indriawati, S.T, M.T.
                     </Typography>
-                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/5979423">
+                    <Link target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/5979423">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -907,7 +908,7 @@ const About = () => {
                         width={20}
                         height={20}
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>
@@ -1053,7 +1054,7 @@ const About = () => {
                     >
                       Dr. Suyanto, S.T, M.T.
                     </Typography>
-                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/6658698">
+                    <Link target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/6658698">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -1061,7 +1062,7 @@ const About = () => {
                         width={20}
                         height={20}
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>
@@ -1206,7 +1207,7 @@ const About = () => {
                     >
                       Andi Rahmadiansah, S.T, M.T.
                     </Typography>
-                    <a target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/29804">
+                    <Link target="_blank" href="https://sinta.kemdikbud.go.id/authors/profile/29804">
                       <Image
                         src="/sinta.svg"
                         alt=""
@@ -1214,7 +1215,7 @@ const About = () => {
                         width={20}
                         height={20}
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>
