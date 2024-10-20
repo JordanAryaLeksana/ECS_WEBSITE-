@@ -76,7 +76,7 @@ const Home = () => {
                 className="fixed inset-0 block"
             />
 
-            {popup && (
+            {/* {popup && (
                 <div className="absolute justify-center items-center bg-inherit lg:bg-primary-dark-dark rounded-xl lg:top-1/2 flex my-4 lg:m-auto w-full lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:w-[1000px] min-w-max  lg:h-[500px] z-[99999]">
                     <div className="relative w-full h-full flex justify-center items-center">
                         <Image
@@ -109,7 +109,6 @@ const Home = () => {
                                 >
                                     Register Now
                                 </Button>
-                                {/* Mobile and small screen close button */}
                                 <div
                                     onClick={() => setPopup(false)}
                                     className="relative cursor-pointer w-16 h-16 lg:hidden flex flex-row-reverse items-center justify-center rounded-full p-4 bg-white z-[1000]"
@@ -119,7 +118,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    {/* Large screen close button */}
+                   
                     <div
                         onClick={() => setPopup(false)}
                         className="absolute top-4 right-4 cursor-pointer lg:flex hidden flex-row-reverse items-center justify-center rounded-full p-4 bg-white z-[1000]"
@@ -127,8 +126,8 @@ const Home = () => {
                         <HiX size={24} className="text-black" />
                     </div>
                 </div>
-            )}
-            {/* Rest of your content */}
+            )} 
+            */}
             <div className="h-screen w-screen flex flex-col bg-primary-normal-normal justify-center items-center text-secondary-normal-normal font-Poppins">
                 <Typography size="7xl" variant="Header" className=" font-bold mb-6 sm:text-[64px] text-[40px] ">
                     ECS LABORATORY
@@ -161,7 +160,7 @@ const Home = () => {
                         <BiLogoWhatsapp className="w-[24px] h-[24px]"></BiLogoWhatsapp>
                     </Link>
                 </div>
-                {!popup && (
+                {/* {!popup && (
                     <motion.div className="absolute sm:right-20 sm:bottom-24 right-6 bottom-24 flex flex-row-reverse gap-10 w-full h-fit text-white">
                         <motion.button
                             whileHover={{ scale: 1.2 }}
@@ -195,7 +194,7 @@ const Home = () => {
                             </div>
                         </motion.button>
                     </motion.div>
-                )}
+                )} */}
             </div>
         </Layout>
     );
