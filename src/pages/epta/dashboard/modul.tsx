@@ -27,7 +27,7 @@ const Modul = () => {
       title: "Microcontroller",
       modul: "Modul Microcontroller I",
       image: "MicroModul.png",
-      file: "/modul/mikro 1.pdf"
+      file: "/modul/mikro-1.pdf"
     },
     // {
     //   title: "Microcontroller",
