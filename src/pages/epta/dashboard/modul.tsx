@@ -13,19 +13,28 @@ const Modul = () => {
   const modulData = [
     {
       title: "Dasar Pemrograman",
+      modul: "Modul Dasar Pemrograman",
       image: "PemrogramanModul.png",
       file: "/modul/prog.pdf"
     },
     {
       title: "Machine Learning",
+      modul: "Modul Machine Learning",
       image: "MLModul.png",
       file: "/modul/ml.pdf"
     },
     {
       title: "Microcontroller",
+      modul: "Modul Microcontroller I",
       image: "MicroModul.png",
-      file: "/modul/micro.pdf"
-    }
+      file: "/modul/mikro 1.pdf"
+    },
+    // {
+    //   title: "Microcontroller",
+    //   modul: "Modul Microcontroller II",
+    //   image: "MicroModul.png",
+    //   file: "/modul/mikro 2.pdf"
+    // }
   ]
   const filteredModulData = modulData.filter(modulItem => 
     modulList.includes(modulItem.title)
@@ -67,7 +76,7 @@ const Modul = () => {
           {filteredModulData.map((modulItem, index) => (
             <ModulCard 
               key={index} 
-              title={modulItem.title} 
+              title={modulItem.modul} 
               image={modulItem.image} 
               file={modulItem.file}
             />
