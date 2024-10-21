@@ -1,7 +1,7 @@
 import DashboardLayout from '@/components/DashboardComponents/dashboardLayout'
 import { useData } from '@/components/Provider/authProvider'
 import Typography from '@/components/Typography/Typography'
-
+import { GrDocumentPdf } from 'react-icons/gr'
 import React, { useContext, useEffect } from 'react'
 
 const Modul = () => {
@@ -61,7 +61,7 @@ const Modul = () => {
             <hr className='border-white border-1' />
             <div className='h-[60px]'>
               <div className='h-full flex flex-row justify-end items-center gap-6 px-6 '>
-                <a href={file} target='_blank'><img src="/Document.svg" alt="" /></a>
+                <a href={file} target='_blank' className='text-white text-xl'><GrDocumentPdf /></a>
                 <a href={file} download><img src="/Download.svg" alt="" /></a>
               </div>
             </div>
