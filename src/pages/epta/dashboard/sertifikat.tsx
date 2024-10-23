@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Typography from "@/components/Typography/Typography";
 import { getDownloadURL, listAll, ref } from 'firebase/storage';
-import { storage } from '@/firebase/init';
+import { storage } from '@/lib/firebase/init';
 import { useData } from '@/components/Provider/authProvider';
 
 const Sertifikat = () => {
