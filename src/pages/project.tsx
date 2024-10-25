@@ -14,7 +14,11 @@ const Project = () => {
                 className="fixed inset-0 block"
             />
             <div className='h-screen w-screen bg-primary-normal-normal'>
+<<<<<<< HEAD
             <ComingSoon></ComingSoon>
+=======
+                       
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
             </div>
         </Layout>
     )

@@ -36,7 +36,11 @@
     "react-toastify": "^9.1.3",
     "react-type-animation": "^3.2.0",
     "slick-carousel": "^1.8.1",
+<<<<<<< HEAD
     "swiper": "^11.1.14",
+=======
+    "swiper": "^11.1.12",
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -46,8 +50,13 @@
     "@types/file-saver": "^2.0.7",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
+<<<<<<< HEAD
     "@types/react": "^18",
     "@types/react-dom": "^18",
+=======
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
     "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.0.1",
     "eslint": "^8.57.0",

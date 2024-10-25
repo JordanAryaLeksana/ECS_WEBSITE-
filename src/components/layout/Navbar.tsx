@@ -41,7 +41,11 @@ const NavbarItem = () => {
         ))}
       </ul>
       <Button variant="default" onClick={handleClick} isHovered>
+<<<<<<< HEAD
         Reach Us
+=======
+        React Us
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
       </Button>
     </div>
   );

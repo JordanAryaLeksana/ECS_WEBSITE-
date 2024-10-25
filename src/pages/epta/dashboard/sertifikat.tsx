@@ -31,6 +31,7 @@ const Sertifikat = () => {
   return (
     <DashboardLayout>
       <div className='flex flex-col sm:ml-[20px] sm:mt-[45px]'>
+<<<<<<< HEAD
         <Typography size='xl' variant='Paragraph' className='text-AddsOn-neutral text-2xl mb-6'>Sertifikat</Typography>
         
         {isLoading ? (
@@ -38,6 +39,12 @@ const Sertifikat = () => {
             Memuat sertifikat...
           </Typography>
         ) : sertif ? (
+=======
+        <Typography variant='Paragraph' size='lg' className='text-AddsOn-neutral font-normal mb-6 sm:text-2xl leading-[36px]'>
+          Sertifikat
+        </Typography>
+        {isTrainingComplete ? (
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
           <div className='flex flex-col sm:flex-row sm:items-center w-full sm:max-w-[912px] h-[70px] sm:h-[94px] rounded-[24px] border-b border-[#000000] bg-[#1E1E1E] sm:p-5'>
             <div className='flex sm:items-center w-full sm:w-auto'>
               <Image src='/logo unduh.svg' alt='icon' width={29} height={29} className='ml-4 sm:mr-8 sm:w-[44px] sm:h-[44px] mt-1' />

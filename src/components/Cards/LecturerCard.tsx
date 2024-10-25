@@ -4,7 +4,11 @@ import Image from "next/image";
 const LecturerCard = () => {
   return (
     <div className="hidden lg:flex justify-center items-center mt-28 ">
+<<<<<<< HEAD
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+=======
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
         <div className="relative w-[251px] h-[334px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -444,7 +448,11 @@ const LecturerCard = () => {
           >
             Dr. Ir. Syamsul Arifin, M.T.
           </Typography>
+<<<<<<< HEAD
           <a href="http://sinta3.kemdikbud.go.id/authors/profile/6042960">
+=======
+          <a href="https://sinta.kemdikbud.go.id/authors/profile/6034761">
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
             <Image
               src="/sinta.svg"
               alt=""
@@ -759,4 +767,8 @@ const LecturerCard = () => {
   );
 };
 
+<<<<<<< HEAD
 export default LecturerCard;
+=======
+export default LecturerCard;
+>>>>>>> 154902097a5b8f4c9014d3326ce053ea169456bc
