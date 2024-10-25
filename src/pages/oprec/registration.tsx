@@ -14,8 +14,8 @@ import { useState } from "react";
 import { FileProvider } from "./components/useFormContext";
 const registrationSchema = Yup.object().shape({
   full_name: Yup.string().required("Full name is required"),
-  NRP: Yup.string().required("NRP is required"),
-  phone_number: Yup.string().required("Phone number is required"),
+  NRP: Yup.string().required("NRP is required").min(10, "NRP must be 10 digits").max(10, "NRP must be 10 digits"),
+  phone_number: Yup.string().required("Phone number is required").matches(/^[0-9]+$/, "Phone number must be digits only"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   batch: Yup.string().required("Batch is required"),
   curriculum_vitae: Yup.mixed().required("Curriculum Vitae is required"),
@@ -39,9 +39,11 @@ export default function Registration() {
     try {
       // Save basic form data to Firebase
       const storageRef = ref(storage, "oprec/");
-
+      
+      localStorage.setItem("oprec", JSON.stringify(finalValues));
       const UploadFilePromises = uploadedFiles.map(
         async (file: { [key: string]: File }) => {
+          setLoading(true);
           const key = Object.keys(file)[0];
           const fileRef = ref(storageRef, `${key}/${finalValues.NRP}-${key}`);
           await uploadBytes(fileRef, file[key]);
@@ -55,10 +57,12 @@ export default function Registration() {
         email: finalValues.email,
         batch: finalValues.batch,
       });
+      setLoading(true)
       // const f = finalValues;
       // console.log("Document written with ID: ", docRef.id);
     } catch (err) {
       // console.error(err);
+      setLoading(false);
     }
 
     // Add uploaded files to the final values
@@ -165,7 +169,7 @@ export default function Registration() {
                     size="small"
                     type="submit" // Form submission is handled here
                   >
-                    {loading ? "" : "Submit"}
+                    {loading ? "Loading...." : "Submit"}
                   </Button>
                 )}
               </div>

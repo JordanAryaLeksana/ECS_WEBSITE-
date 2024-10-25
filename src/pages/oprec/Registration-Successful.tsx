@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography/Typography";
@@ -7,12 +8,24 @@ import { HiOutlineHome } from "react-icons/hi";
 import { useRouter } from "next/navigation";
 export default function Successful() {
 
+  const [showRegist,setShowRegist] = useState(false)
   const router = useRouter();
   const HandleClick = () => {
     router.push("/");
   };
-  return (
-    <div
+  useEffect(() => {
+    if(typeof window !== undefined){
+      const dataUser=  localStorage.getItem("oprec");
+      if(dataUser == null || dataUser == "undefined"){
+        router.push("/")
+        alert("You Must Registration First")
+      } else {
+        setShowRegist(true)
+      }
+    }
+  },[router])
+    return showRegist ? (
+      <div
       className={clsxm([
         "w-full h-full m-auto min-h-screen flex flex-col justify-center",
         "bg-primary-normal-normal",
@@ -54,5 +67,6 @@ export default function Successful() {
         </Button>
       </div>
     </div>
-  );
+  ) : <>
+  </>;
 }

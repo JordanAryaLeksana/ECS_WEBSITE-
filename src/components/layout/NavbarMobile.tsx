@@ -15,8 +15,8 @@ const NavbarMobile = () => {
   return (
     <div className='fixed bottom-0 w-screen z-[999999] flex h-[56px] bg-AddsOn-gray justify-center lg:hidden '>
       <ul className='flex flex-row justify-center items-center gap-10 w-full sm:justify-evenly '>
-        {links.map(({ href, imageSrc, imageAlt, imageWidth, imageHeight, label, icon }) => (
-          <li key={href} className="flex items-center">
+        {links.map(({ href, imageSrc, imageAlt, imageWidth, imageHeight, label, icon }, index) => (
+          <li key={index} className="flex items-center">
             <Link href={href} className="flex items-center ">
               {imageSrc && (
                 <Image

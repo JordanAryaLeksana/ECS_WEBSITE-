@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect, Context, useContext } from "react";
-import { useFormikContext } from "formik";
-import { AiOutlineCloseCircle, AiOutlineDown } from "react-icons/ai"; // Tambahkan ikon panah
+
+import React, { useState, useEffect, useCallback } from "react";
+import { useField, useFormikContext } from "formik";
+import { AiOutlineCloseCircle, AiOutlineDown } from "react-icons/ai";
 import Typography from "../Typography/Typography";
-import { Field, ErrorMessage } from "formik";
+import clsxm from "@/lib/clsxm";
 
 interface DropdownOption {
   value: string | number;
@@ -13,8 +14,8 @@ interface DropdownOption {
 interface InputDropdownProps {
   name: string;
   label: string;
-  options?: DropdownOption[]; // Optional, bisa datang dari API
-  fetchOptions?: () => Promise<DropdownOption[]>; // Fungsi untuk fetch API
+  options?: DropdownOption[];
+  fetchOptions?: () => Promise<DropdownOption[]>;
   size?: "lg" | "base" | "sm";
   placeholder?: string;
   required?: boolean;
@@ -28,18 +29,13 @@ interface InputDropdownProps {
   helperText?: string;
   className?: string;
   style?: React.CSSProperties;
-  context?: Context<
-    {
-      [key: string]: string;
-    }[]
-  >;
 }
 
-const InputDropdown: React.FC<InputDropdownProps> = ({
+export default function InputDropdown({
   name,
   label,
-  options = [], // Default kosong jika tidak ada opsional
-  fetchOptions, // Fungsi untuk fetch opsi dari API
+  options = [],
+  fetchOptions,
   size = "base",
   placeholder,
   required = false,
@@ -52,24 +48,18 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
   helperText,
   className = "",
   style = {},
-  context,
-}) => {
-    const { setFieldValue, errors, touched, values, setFieldTouched } = useFormikContext<{
-        [key: string]: any;
-    }>();
-    const errorsLogic = touched[name] && errors[name] && !disabled && !readonly;
-    const successLogic = touched[name] && !errors[name] && !disabled && !readonly;
-
-  const [dropdownOptions, setDropdownOptions] =
-    useState<DropdownOption[]>(options);
-  const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(
-    null
-  );
-  
+}: InputDropdownProps) {
+  const [field, meta, helpers] = useField(name);
+  const { setValue, setTouched } = helpers;
+  const { validateField } = useFormikContext();
+  const [dropdownOptions, setDropdownOptions] = useState<DropdownOption[]>(options);
+  const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(null);
   const [loading, setLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // Fetch data dari API jika fetchOptions disediakan
+  const isError = meta.touched && meta.error;
+  const isSuccess = meta.touched && !meta.error && field.value;
+
   useEffect(() => {
     if (fetchOptions) {
       setLoading(true);
@@ -85,58 +75,63 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
     }
   }, [fetchOptions]);
 
-  const handleSelect = (option: DropdownOption) => {
+  useEffect(() => {
+    if (required && !field.value) {
+      setTouched(true, false);
+      validateField(name);
+    }
+  }, [required, field.value, setTouched, validateField, name]);
+
+  const handleSelect = useCallback((option: DropdownOption) => {
     setSelectedOption(option);
-    setFieldValue(name, option.value);
-    setFieldTouched(name, true);
-    setShowDropdown(false); // Sembunyikan dropdown setelah memilih opsi
-  };
+    setValue(option.value);
+    setTouched(true, false);
+    validateField(name);
+    setShowDropdown(false);
+  }, [setValue, setTouched, validateField, name]);
 
-  const handleClear = () => {
+  const handleClear = useCallback(() => {
     setSelectedOption(null);
-    setFieldValue(name, "");
-  };
+    setValue("");
+    setTouched(true, false);
+    validateField(name);
+  }, [setValue, setTouched, validateField, name]);
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+  const toggleDropdown = useCallback(() => {
+    setShowDropdown((prev) => !prev);
+  }, []);
 
   return (
-    <div className={`mb-3 ${className}`} style={style}>
+    <div className={clsxm("mb-3", className)} style={style}>
       <div className="w-full flex justify-between items-center gap-3 mb-2">
         <label htmlFor={name}>
-          <Typography
-            variant="Header"
-            size="xs"
-            className="font-bold text-AddsOn-neutral"
-          >
+          <Typography variant="Header" size="xs" className="font-bold text-AddsOn-neutral">
             {label}
+            {required && <span className="text-accent-error-500"> *</span>}
           </Typography>
         </label>
       </div>
 
       <div
-        className={`
-                    flex w-full rounded-sm items-center p-2 border border-solid gap-3 
-                    ${
-                      errorsLogic
-                        ? "border-accent-error-500"
-                        : successLogic
-                        ? "border-accent-success-500"
-                        : "border-primary-light-active"
-                    }
-                `}
+        className={clsxm(
+          "flex w-full rounded-sm items-center p-2 border border-solid gap-3",
+          [
+            isError ? "border-accent-error-500" : isSuccess ? "border-accent-success-500" : "border-primary-light-active",
+            disabled && "bg-primary-light-light",
+            readonly && "bg-primary-light-light",
+          ]
+        )}
       >
         {prefix && <div className="input-text-addons">{prefix}</div>}
 
-        <Field
+        <input
           type="text"
-          name={name}
+          {...field}
           id={`inputfor-${name}`}
-          className={`w-full h-full bg-transparent text-primary-light-active 
-          border-transparent focus:border-transparent active:border-transparent 
-          focus:bg-transparent active:bg-transparent 
-          outline-none cursor-pointer p-2`}
+          className="w-full h-full bg-transparent text-primary-light-active 
+            border-transparent focus:border-transparent active:border-transparent 
+            focus:bg-transparent active:bg-transparent 
+            outline-none cursor-pointer p-2"
           disabled={disabled || readonly}
           readOnly
           value={selectedOption ? selectedOption.label : ""}
@@ -154,13 +149,12 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
           </div>
         )}
 
-        {/* Tambahkan panah yang berubah arah */}
         <div className="text-primary-light-light">
           <AiOutlineDown
             size={20}
-            className={`transition-transform duration-300 ${
+            className={clsxm("transition-transform duration-300", [
               showDropdown ? "rotate-180" : "rotate-0"
-            }`} // Kondisi untuk rotasi
+            ])}
             onClick={toggleDropdown}
           />
         </div>
@@ -186,24 +180,22 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
         </ul>
       )}
 
-      <ErrorMessage name={name}>
-        {(msg) => (
-          <Typography
+      {isError && (
+        <Typography
           variant="Paragraph"
-            as="span"
-            size="sm"
-            className="text-accent-error-500 font-semibold flex gap-1.5 mt-1 items-center"
-          >
-            {msg}
-          </Typography>
-        )}
-      </ErrorMessage>
+          as="span"
+          size="sm"
+          className="text-accent-error-500 font-semibold flex gap-1.5 mt-1 items-center"
+        >
+          {meta.error}
+        </Typography>
+      )}
 
       {helperText && (
         <Typography
           as="span"
           size="sm"
-            variant="Paragraph"
+          variant="Paragraph"
           className="input-helper"
         >
           {helperText}
@@ -211,6 +203,4 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
       )}
     </div>
   );
-};
-
-export default InputDropdown;
+}

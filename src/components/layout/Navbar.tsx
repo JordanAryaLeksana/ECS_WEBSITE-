@@ -19,8 +19,8 @@ const NavbarItem = () => {
   return (
     <div className="lg:flex z-[99999] hidden justify-evenly gap-16 items-center px-10 fixed bg-AddsOn-gray h-[68px] top-[50px] right-1/2 translate-x-[48%] rounded-full">
       <ul className="flex items-center gap-10">
-        {links.map(({ href, imageSrc, imageAlt, imageWidth, imageHeight, label, icon }) => (
-          <li key={href} className="flex items-center">
+        {links.map(({ href, imageSrc, imageAlt, imageWidth, imageHeight, label, icon }, index) => (
+          <li key={index} className="flex items-center">
             <Link href={href} className="flex items-center ">
               {imageSrc && (
                 <Image
